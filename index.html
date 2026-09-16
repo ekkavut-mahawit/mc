@@ -335,6 +335,47 @@
 
 
     /* =====================================================
+       INSTALL PWA
+    ===================================================== */
+
+    .install-button {
+      display: none;
+
+      margin-top: 15px;
+
+      background: #2e7d32;
+    }
+
+
+    .install-button:hover {
+      background: #256628;
+    }
+
+
+    .install-message {
+      display: none;
+
+      margin-top: 10px;
+
+      padding: 10px 12px;
+
+      border-radius: 8px;
+
+      background: #fff3cd;
+
+      border:
+        1px solid
+        #ffe08a;
+
+      color: #856404;
+
+      font-size: 13px;
+
+      line-height: 1.5;
+    }
+
+
+    /* =====================================================
        LOGIN LINKS
     ===================================================== */
 
@@ -909,6 +950,25 @@
       </form>
 
 
+      <!-- ===================================================
+           INSTALL PWA
+      =================================================== -->
+
+      <button
+        type="button"
+        id="installButton"
+        class="install-button"
+      >
+        📱 ติดตั้งแอปบนหน้าจอ
+      </button>
+
+
+      <div
+        id="installMessage"
+        class="install-message"
+      ></div>
+
+
       <div class="login-links">
 
         <button
@@ -1273,6 +1333,164 @@
 
 const API_URL =
   'https://script.google.com/macros/s/AKfycbwhODtrWOcFDIl-YGu5vpvxS8m0DSgC_KLULsr6zmfsJqzlOUIz-J5qpnb0Qfth594Y/exec';
+
+
+
+/* =====================================================
+   PWA INSTALL
+===================================================== */
+
+let deferredInstallPrompt = null;
+
+
+window.addEventListener(
+  'beforeinstallprompt',
+  function(event) {
+
+    event.preventDefault();
+
+    deferredInstallPrompt =
+      event;
+
+
+    const installButton =
+      document.getElementById(
+        'installButton'
+      );
+
+
+    if (installButton) {
+
+      installButton.style.display =
+        'block';
+
+    }
+
+  }
+);
+
+
+window.addEventListener(
+  'appinstalled',
+  function() {
+
+    deferredInstallPrompt =
+      null;
+
+
+    const installButton =
+      document.getElementById(
+        'installButton'
+      );
+
+
+    if (installButton) {
+
+      installButton.style.display =
+        'none';
+
+    }
+
+  }
+);
+
+
+document
+  .getElementById('installButton')
+  .addEventListener(
+    'click',
+    async function() {
+
+      const installButton =
+        document.getElementById(
+          'installButton'
+        );
+
+      const installMessage =
+        document.getElementById(
+          'installMessage'
+        );
+
+
+      /*
+       * Chrome พบคำสั่งติดตั้ง
+       */
+
+      if (deferredInstallPrompt) {
+
+        deferredInstallPrompt.prompt();
+
+
+        const result =
+          await deferredInstallPrompt.userChoice;
+
+
+        if (
+          result &&
+          result.outcome === 'accepted'
+        ) {
+
+          installButton.style.display =
+            'none';
+
+        }
+
+
+        deferredInstallPrompt =
+          null;
+
+        return;
+
+      }
+
+
+      /*
+       * กรณีเปิดจาก LINE
+       * หรือเบราว์เซอร์ยังไม่รองรับ
+       */
+
+      installMessage.style.display =
+        'block';
+
+      installMessage.textContent =
+        'หากไม่สามารถติดตั้งได้ กรุณาเปิดลิงก์นี้ด้วย Google Chrome แล้วกดปุ่มติดตั้งอีกครั้ง';
+
+    }
+  );
+
+
+
+/* =====================================================
+   ตรวจสอบว่าเปิดในโหมดติดตั้งแล้วหรือไม่
+===================================================== */
+
+function isStandaloneMode() {
+
+  return (
+    window.matchMedia(
+      '(display-mode: standalone)'
+    ).matches ||
+    window.navigator.standalone === true
+  );
+
+}
+
+
+if (isStandaloneMode()) {
+
+  const installButton =
+    document.getElementById(
+      'installButton'
+    );
+
+  if (installButton) {
+
+    installButton.style.display =
+      'none';
+
+  }
+
+}
 
 
 
