@@ -1,0 +1,2830 @@
+<!DOCTYPE html>
+
+<html lang="th">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <link
+    rel="manifest"
+    href="./manifest.json"
+  >
+
+  <meta
+    name="theme-color"
+    content="#c62828"
+  >
+
+  <meta
+    name="mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="default"
+  >
+
+  <meta
+    name="apple-mobile-web-app-title"
+    content="ระบบรวมลิ้งก์ส่งงานวิชาการ มช."
+  >
+
+  <link
+    rel="apple-touch-icon"
+    href="./logo.png"
+  >
+
+  <title>ระบบรวมลิ้งก์ส่งงานวิชาการ มช.</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      font-family:
+        "Sarabun",
+        Arial,
+        sans-serif;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f8f9fa,
+          #eeeeee
+        );
+
+      color: #333;
+    }
+
+
+    /* =====================================================
+       SCHOOL HEADER
+    ===================================================== */
+
+    .school-header {
+      width: 100%;
+
+      background: #ffffff;
+
+      border-bottom:
+        1px solid #eeeeee;
+
+      box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.08);
+
+      padding:
+        14px
+        20px;
+    }
+
+
+    .school-header-inner {
+      max-width: 900px;
+
+      margin: auto;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 14px;
+    }
+
+
+    .school-logo {
+      width: 65px;
+      height: 65px;
+
+      object-fit: contain;
+
+      flex-shrink: 0;
+    }
+
+
+    .school-info {
+      text-align: left;
+    }
+
+
+    .school-name {
+      font-size: 22px;
+
+      font-weight: bold;
+
+      color: #333;
+
+      line-height: 1.3;
+    }
+
+
+    .school-system-name {
+      margin-top: 3px;
+
+      font-size: 14px;
+
+      color: #c62828;
+    }
+
+
+    /* =====================================================
+       LOGIN
+    ===================================================== */
+
+    .login-container {
+      width: 100%;
+      max-width: 420px;
+
+      padding: 20px;
+
+      margin: auto;
+      min-height: calc(100vh - 96px);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    .login-card {
+      width: 100%;
+
+      background: #ffffff;
+
+      border-radius: 20px;
+
+      padding: 35px 30px;
+
+      box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.12);
+
+      text-align: center;
+    }
+
+
+    .logo {
+      width: 80px;
+      height: 80px;
+
+      margin: 0 auto 20px;
+
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #c62828;
+
+      color: white;
+
+      font-size: 38px;
+    }
+
+
+    h1 {
+      margin: 0 0 8px;
+
+      font-size: 24px;
+
+      color: #c62828;
+    }
+
+
+    .subtitle {
+      margin-bottom: 30px;
+
+      color: #777;
+
+      font-size: 15px;
+    }
+
+
+    .form-group {
+      text-align: left;
+
+      margin-bottom: 18px;
+    }
+
+
+    label {
+      display: block;
+
+      margin-bottom: 7px;
+
+      font-size: 14px;
+
+      font-weight: bold;
+
+      color: #555;
+    }
+
+
+    input {
+      width: 100%;
+
+      padding: 13px 14px;
+
+      border: 1px solid #ddd;
+
+      border-radius: 10px;
+
+      font-size: 16px;
+
+      outline: none;
+
+      transition: 0.2s;
+    }
+
+
+    input:focus {
+      border-color: #c62828;
+
+      box-shadow:
+        0 0 0 3px
+        rgba(198, 40, 40, 0.1);
+    }
+
+
+    button {
+      width: 100%;
+
+      padding: 14px;
+
+      margin-top: 8px;
+
+      border: none;
+
+      border-radius: 10px;
+
+      background: #c62828;
+
+      color: white;
+
+      font-size: 17px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+    }
+
+
+    button:hover {
+      background: #a91f1f;
+    }
+
+
+    button:disabled {
+      background: #aaa;
+
+      cursor: not-allowed;
+    }
+
+
+    .message {
+      margin-top: 18px;
+
+      min-height: 24px;
+
+      font-size: 14px;
+    }
+
+
+    .loading {
+      color: #777;
+    }
+
+
+    .error {
+      color: #d32f2f;
+    }
+
+
+    .success {
+      color: #2e7d32;
+    }
+
+
+    .footer {
+      margin-top: 25px;
+
+      font-size: 12px;
+
+      color: #999;
+    }
+
+
+    /* =====================================================
+       LOGIN LINKS
+    ===================================================== */
+
+    .login-links {
+      margin-top: 18px;
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 18px;
+
+      flex-wrap: wrap;
+    }
+
+
+    .login-link {
+      width: auto;
+
+      margin: 0;
+
+      padding: 0;
+
+      background: none;
+
+      color: #c62828;
+
+      font-size: 14px;
+
+      font-weight: normal;
+    }
+
+
+    .login-link:hover {
+      background: none;
+
+      text-decoration: underline;
+    }
+
+
+    /* =====================================================
+       REGISTER / RESET
+    ===================================================== */
+
+    .secondary-page {
+      display: none;
+    }
+
+
+    .back-button {
+      width: auto;
+
+      margin:
+        0 0
+        20px;
+
+      padding:
+        8px
+        12px;
+
+      background: #eeeeee;
+
+      color: #555;
+
+      font-size: 14px;
+    }
+
+
+    .back-button:hover {
+      background: #dddddd;
+    }
+
+
+    .form-title {
+      margin:
+        0 0
+        8px;
+
+      color: #c62828;
+
+      font-size: 22px;
+    }
+
+
+    .form-subtitle {
+      margin-bottom: 25px;
+
+      color: #777;
+
+      font-size: 14px;
+    }
+
+
+    /* =====================================================
+       TASK PAGE
+    ===================================================== */
+
+    #taskPage {
+      display: none;
+
+      min-height: 100vh;
+    }
+
+
+    .topbar {
+      background: #c62828;
+
+      color: white;
+
+      padding:
+        16px
+        20px;
+
+      box-shadow:
+        0 3px 10px
+        rgba(0, 0, 0, 0.15);
+    }
+
+
+    .topbar-inner {
+      max-width: 900px;
+
+      margin: auto;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+    }
+
+
+    .system-title {
+      font-size: 20px;
+
+      font-weight: bold;
+    }
+
+
+    .system-subtitle {
+      margin-top: 3px;
+
+      font-size: 13px;
+
+      opacity: 0.9;
+    }
+
+
+    .logout-button {
+      width: auto;
+
+      margin: 0;
+
+      padding:
+        9px
+        14px;
+
+      background: white;
+
+      color: #c62828;
+
+      font-size: 14px;
+
+      white-space: nowrap;
+    }
+
+
+    .logout-button:hover {
+      background: #f5f5f5;
+    }
+
+
+    .task-container {
+      width: 100%;
+
+      max-width: 900px;
+
+      margin: auto;
+
+      padding:
+        20px;
+    }
+
+
+    .user-card {
+      background: white;
+
+      border-radius: 15px;
+
+      padding: 18px 20px;
+
+      margin-bottom: 20px;
+
+      box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.08);
+    }
+
+
+    .user-name {
+      font-size: 18px;
+
+      font-weight: bold;
+
+      color: #333;
+    }
+
+
+    .user-role {
+      margin-top: 4px;
+
+      color: #777;
+
+      font-size: 14px;
+    }
+
+
+    .section-title {
+      margin:
+        10px 0
+        15px;
+
+      font-size: 20px;
+
+      color: #c62828;
+    }
+
+
+    /* =====================================================
+       แจ้งเตือนใกล้ครบกำหนด
+    ===================================================== */
+
+    .due-warning {
+      margin-bottom: 15px;
+
+      padding:
+        12px
+        15px;
+
+      background: #fff3cd;
+
+      border:
+        1px solid
+        #ffe08a;
+
+      border-radius: 10px;
+
+      color: #856404;
+
+      font-size: 14px;
+
+      font-weight: bold;
+    }
+
+
+    .task-list {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 15px;
+    }
+
+
+    .task-card {
+      background: white;
+
+      border-radius: 15px;
+
+      padding: 20px;
+
+      box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.08);
+    }
+
+
+    .task-card.near-due {
+      border:
+        2px solid
+        #ffb300;
+    }
+
+
+    .task-title {
+      font-size: 19px;
+
+      font-weight: bold;
+
+      color: #333;
+
+      margin-bottom: 8px;
+    }
+
+
+    .task-description {
+      color: #666;
+
+      font-size: 14px;
+
+      line-height: 1.6;
+
+      margin-bottom: 12px;
+    }
+
+
+    .task-date {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-bottom: 15px;
+    }
+
+
+    .date-item {
+      background: #f5f5f5;
+
+      border-radius: 8px;
+
+      padding:
+        6px
+        10px;
+
+      font-size: 13px;
+
+      color: #555;
+    }
+
+
+    .due-warning-badge {
+      background: #fff3cd;
+
+      color: #856404;
+
+      border:
+        1px solid
+        #ffe08a;
+
+      font-weight: bold;
+    }
+
+
+    .submit-button {
+      margin: 0;
+
+      background: #c62828;
+    }
+
+
+    .submit-button:hover {
+      background: #a91f1f;
+    }
+
+
+    .empty-message {
+      background: white;
+
+      border-radius: 15px;
+
+      padding: 35px 20px;
+
+      text-align: center;
+
+      color: #777;
+
+      box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.08);
+    }
+
+
+    .loading-tasks {
+      text-align: center;
+
+      padding: 40px;
+
+      color: #777;
+    }
+
+
+    @media (max-width: 600px) {
+
+      .school-header {
+        padding:
+          12px
+          14px;
+      }
+
+
+      .school-header-inner {
+        justify-content: flex-start;
+
+        gap: 10px;
+      }
+
+
+      .school-logo {
+        width: 52px;
+        height: 52px;
+      }
+
+
+      .school-name {
+        font-size: 17px;
+      }
+
+
+      .school-system-name {
+        font-size: 12px;
+      }
+
+
+      .topbar {
+        padding: 14px;
+      }
+
+
+      .topbar-inner {
+        align-items: flex-start;
+      }
+
+
+      .system-title {
+        font-size: 17px;
+      }
+
+
+      .system-subtitle {
+        font-size: 12px;
+      }
+
+
+      .logout-button {
+        padding:
+          8px
+          10px;
+
+        font-size: 13px;
+      }
+
+
+      .task-container {
+        padding: 15px;
+      }
+
+
+      .task-card {
+        padding: 16px;
+      }
+
+
+      .task-title {
+        font-size: 17px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+
+  <!-- =====================================================
+       SCHOOL HEADER
+  ===================================================== -->
+
+  <div class="school-header">
+
+    <div class="school-header-inner">
+
+      <img
+        class="school-logo"
+        src="https://ekkavut-mahawit.github.io/smic-model/logo.png"
+        alt="โลโก้โรงเรียน"
+      >
+
+
+      <div class="school-info">
+
+        <div class="school-name">
+          โรงเรียนมหาชนะชัยวิทยาคม
+        </div>
+
+        <div class="school-system-name">
+          ระบบรวมลิ้งก์ส่งงานวิชาการ มช.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       LOGIN PAGE
+  ===================================================== -->
+
+  <div
+    class="login-container"
+    id="loginPage"
+  >
+
+    <div class="login-card">
+
+      <div class="logo">
+        📚
+      </div>
+
+
+      <h1>
+        ระบบรวมลิ้งก์ส่งงานวิชาการ มช.
+      </h1>
+
+
+      <div class="subtitle">
+        กลุ่มบริหารวิชาการ
+      </div>
+
+
+      <form id="loginForm">
+
+        <div class="form-group">
+
+          <label for="username">
+            ชื่อผู้ใช้
+          </label>
+
+          <input
+            type="text"
+            id="username"
+            autocomplete="username"
+            placeholder="กรอกชื่อผู้ใช้"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="password">
+            รหัสผ่าน
+          </label>
+
+          <input
+            type="password"
+            id="password"
+            autocomplete="current-password"
+            placeholder="กรอกรหัสผ่าน"
+            required
+          >
+
+        </div>
+
+
+        <button
+          type="submit"
+          id="loginButton"
+        >
+          🔐 เข้าสู่ระบบ
+        </button>
+
+      </form>
+
+
+      <div class="login-links">
+
+        <button
+          type="button"
+          class="login-link"
+          onclick="showRegisterPage()"
+        >
+          👤 ลงทะเบียนครั้งแรก
+        </button>
+
+
+        <button
+          type="button"
+          class="login-link"
+          onclick="showResetPage()"
+        >
+          🔑 ลืมรหัสผ่าน
+        </button>
+
+      </div>
+
+
+      <div
+        id="message"
+        class="message"
+      ></div>
+
+
+      <div class="footer">
+        ระบบสำหรับบุคลากรโรงเรียน
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       REGISTER PAGE
+  ===================================================== -->
+
+  <div
+    class="login-container secondary-page"
+    id="registerPage"
+  >
+
+    <div class="login-card">
+
+      <button
+        type="button"
+        class="back-button"
+        onclick="showLoginPage()"
+      >
+        ← กลับหน้าเข้าสู่ระบบ
+      </button>
+
+
+      <div class="logo">
+        👤
+      </div>
+
+
+      <div class="form-title">
+        ลงทะเบียนครู
+      </div>
+
+
+      <div class="form-subtitle">
+        สำหรับการเข้าใช้งานครั้งแรก
+      </div>
+
+
+      <form id="registerForm">
+
+        <div class="form-group">
+
+          <label for="registerName">
+            ชื่อ–สกุล
+          </label>
+
+          <input
+            type="text"
+            id="registerName"
+            placeholder="กรอกชื่อ–สกุล"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="registerUsername">
+            ชื่อผู้ใช้
+          </label>
+
+          <input
+            type="text"
+            id="registerUsername"
+            autocomplete="username"
+            placeholder="กำหนดชื่อผู้ใช้"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="registerPassword">
+            รหัสผ่าน
+          </label>
+
+          <input
+            type="password"
+            id="registerPassword"
+            autocomplete="new-password"
+            placeholder="อย่างน้อย 6 ตัวอักษร"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="registerConfirmPassword">
+            ยืนยันรหัสผ่าน
+          </label>
+
+          <input
+            type="password"
+            id="registerConfirmPassword"
+            autocomplete="new-password"
+            placeholder="กรอกรหัสผ่านอีกครั้ง"
+            required
+          >
+
+        </div>
+
+
+        <button
+          type="submit"
+          id="registerButton"
+        >
+          👤 ลงทะเบียน
+        </button>
+
+      </form>
+
+
+      <div
+        id="registerMessage"
+        class="message"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       RESET PASSWORD PAGE
+  ===================================================== -->
+
+  <div
+    class="login-container secondary-page"
+    id="resetPage"
+  >
+
+    <div class="login-card">
+
+      <button
+        type="button"
+        class="back-button"
+        onclick="showLoginPage()"
+      >
+        ← กลับหน้าเข้าสู่ระบบ
+      </button>
+
+
+      <div class="logo">
+        🔑
+      </div>
+
+
+      <div class="form-title">
+        เปลี่ยนรหัสผ่าน
+      </div>
+
+
+      <div class="form-subtitle">
+        กรณีลืมรหัสผ่าน
+      </div>
+
+
+      <form id="resetForm">
+
+        <div class="form-group">
+
+          <label for="resetName">
+            ชื่อ–สกุล
+          </label>
+
+          <input
+            type="text"
+            id="resetName"
+            placeholder="กรอกชื่อ–สกุล"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="resetUsername">
+            ชื่อผู้ใช้
+          </label>
+
+          <input
+            type="text"
+            id="resetUsername"
+            autocomplete="username"
+            placeholder="กรอกชื่อผู้ใช้"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="resetPassword">
+            รหัสผ่านใหม่
+          </label>
+
+          <input
+            type="password"
+            id="resetPassword"
+            autocomplete="new-password"
+            placeholder="อย่างน้อย 6 ตัวอักษร"
+            required
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="resetConfirmPassword">
+            ยืนยันรหัสผ่านใหม่
+          </label>
+
+          <input
+            type="password"
+            id="resetConfirmPassword"
+            autocomplete="new-password"
+            placeholder="กรอกรหัสผ่านใหม่อีกครั้ง"
+            required
+          >
+
+        </div>
+
+
+        <button
+          type="submit"
+          id="resetButton"
+        >
+          🔑 เปลี่ยนรหัสผ่าน
+        </button>
+
+      </form>
+
+
+      <div
+        id="resetMessage"
+        class="message"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       TASK PAGE
+  ===================================================== -->
+
+  <div id="taskPage">
+
+    <div class="topbar">
+
+      <div class="topbar-inner">
+
+        <div>
+
+          <div class="system-title">
+            📚 ระบบรวมลิ้งก์ส่งงานวิชาการ มช.
+          </div>
+
+          <div class="system-subtitle">
+            กลุ่มบริหารวิชาการ
+          </div>
+
+        </div>
+
+
+        <button
+          class="logout-button"
+          onclick="logout()"
+        >
+          ออกจากระบบ
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="task-container">
+
+      <div
+        class="user-card"
+        id="userCard"
+      ></div>
+
+
+      <div class="section-title">
+        📋 งานที่ต้องดำเนินการ
+      </div>
+
+
+      <div
+        id="taskMessage"
+        class="loading-tasks"
+      >
+        กำลังโหลดรายการงาน...
+      </div>
+
+
+      <div
+        id="taskList"
+        class="task-list"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+
+<script>
+
+
+/* =====================================================
+   URL ของ Google Apps Script
+===================================================== */
+
+const API_URL =
+  'https://script.google.com/macros/s/AKfycbwhODtrWOcFDIl-YGu5vpvxS8m0DSgC_KLULsr6zmfsJqzlOUIz-J5qpnb0Qfth594Y/exec';
+
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+document
+  .getElementById('loginForm')
+  .addEventListener(
+    'submit',
+    async function(event) {
+
+      event.preventDefault();
+
+      const username =
+        document
+          .getElementById('username')
+          .value
+          .trim();
+
+      const password =
+        document
+          .getElementById('password')
+          .value;
+
+      const button =
+        document
+          .getElementById('loginButton');
+
+      const message =
+        document
+          .getElementById('message');
+
+      button.disabled = true;
+
+      button.textContent =
+        'กำลังเข้าสู่ระบบ...';
+
+      message.className =
+        'message loading';
+
+      message.textContent =
+        'กำลังตรวจสอบข้อมูล';
+
+      try {
+
+        const response =
+          await fetch(
+            API_URL,
+            {
+
+              method: 'POST',
+
+              headers: {
+                'Content-Type':
+                  'text/plain;charset=utf-8'
+              },
+
+              body:
+                JSON.stringify({
+
+                  action: 'login',
+
+                  username:
+                    username,
+
+                  password:
+                    password
+
+                })
+
+            }
+          );
+
+        const result =
+          await response.json();
+
+        if (!result.success) {
+
+          message.className =
+            'message error';
+
+          message.textContent =
+            result.message ||
+            'เข้าสู่ระบบไม่สำเร็จ';
+
+          return;
+
+        }
+
+        localStorage.setItem(
+          'loginToken',
+          result.token
+        );
+
+        localStorage.setItem(
+          'userData',
+          JSON.stringify(
+            result.user
+          )
+        );
+
+        message.className =
+          'message success';
+
+        message.textContent =
+          'เข้าสู่ระบบสำเร็จ';
+
+        showTaskPage();
+
+      } catch (error) {
+
+        console.error(error);
+
+        message.className =
+          'message error';
+
+        message.textContent =
+          'ไม่สามารถเชื่อมต่อระบบได้';
+
+      } finally {
+
+        button.disabled = false;
+
+        button.textContent =
+          '🔐 เข้าสู่ระบบ';
+
+      }
+
+    }
+  );
+
+
+
+/* =====================================================
+   แสดงหน้า Login
+===================================================== */
+
+function showLoginPage() {
+
+  document
+    .getElementById('loginPage')
+    .style.display = 'flex';
+
+  document
+    .getElementById('registerPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('resetPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('message')
+    .textContent = '';
+
+}
+
+
+
+/* =====================================================
+   แสดงหน้าลงทะเบียน
+===================================================== */
+
+function showRegisterPage() {
+
+  document
+    .getElementById('loginPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('registerPage')
+    .style.display = 'flex';
+
+  document
+    .getElementById('resetPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('registerMessage')
+    .textContent = '';
+
+}
+
+
+
+/* =====================================================
+   แสดงหน้าลืมรหัสผ่าน
+===================================================== */
+
+function showResetPage() {
+
+  document
+    .getElementById('loginPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('registerPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('resetPage')
+    .style.display = 'flex';
+
+  document
+    .getElementById('resetMessage')
+    .textContent = '';
+
+}
+
+
+
+/* =====================================================
+   REGISTER
+===================================================== */
+
+document
+  .getElementById('registerForm')
+  .addEventListener(
+    'submit',
+    async function(event) {
+
+      event.preventDefault();
+
+      const name =
+        document
+          .getElementById('registerName')
+          .value
+          .trim();
+
+      const username =
+        document
+          .getElementById('registerUsername')
+          .value
+          .trim();
+
+      const password =
+        document
+          .getElementById('registerPassword')
+          .value;
+
+      const confirmPassword =
+        document
+          .getElementById('registerConfirmPassword')
+          .value;
+
+      const button =
+        document
+          .getElementById('registerButton');
+
+      const message =
+        document
+          .getElementById('registerMessage');
+
+      if (
+        password !==
+        confirmPassword
+      ) {
+
+        message.className =
+          'message error';
+
+        message.textContent =
+          'รหัสผ่านไม่ตรงกัน';
+
+        return;
+
+      }
+
+      if (password.length < 6) {
+
+        message.className =
+          'message error';
+
+        message.textContent =
+          'รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร';
+
+        return;
+
+      }
+
+      button.disabled = true;
+
+      button.textContent =
+        'กำลังลงทะเบียน...';
+
+      message.className =
+        'message loading';
+
+      message.textContent =
+        'กำลังบันทึกข้อมูล';
+
+      try {
+
+        const response =
+          await fetch(
+            API_URL,
+            {
+
+              method: 'POST',
+
+              headers: {
+                'Content-Type':
+                  'text/plain;charset=utf-8'
+              },
+
+              body:
+                JSON.stringify({
+
+                  action:
+                    'register',
+
+                  name:
+                    name,
+
+                  username:
+                    username,
+
+                  password:
+                    password
+
+                })
+
+            }
+          );
+
+        const result =
+          await response.json();
+
+        if (!result.success) {
+
+          message.className =
+            'message error';
+
+          message.textContent =
+            result.message ||
+            'ลงทะเบียนไม่สำเร็จ';
+
+          return;
+
+        }
+
+        message.className =
+          'message success';
+
+        message.textContent =
+          'ลงทะเบียนสำเร็จ สามารถเข้าสู่ระบบได้';
+
+        document
+          .getElementById('registerForm')
+          .reset();
+
+        setTimeout(
+          function() {
+
+            showLoginPage();
+
+            document
+              .getElementById('username')
+              .value = username;
+
+          },
+          1200
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        message.className =
+          'message error';
+
+        message.textContent =
+          'ไม่สามารถเชื่อมต่อระบบได้';
+
+      } finally {
+
+        button.disabled = false;
+
+        button.textContent =
+          '👤 ลงทะเบียน';
+
+      }
+
+    }
+  );
+
+
+
+/* =====================================================
+   RESET PASSWORD
+===================================================== */
+
+document
+  .getElementById('resetForm')
+  .addEventListener(
+    'submit',
+    async function(event) {
+
+      event.preventDefault();
+
+      const name =
+        document
+          .getElementById('resetName')
+          .value
+          .trim();
+
+      const username =
+        document
+          .getElementById('resetUsername')
+          .value
+          .trim();
+
+      const newPassword =
+        document
+          .getElementById('resetPassword')
+          .value;
+
+      const confirmPassword =
+        document
+          .getElementById('resetConfirmPassword')
+          .value;
+
+      const button =
+        document
+          .getElementById('resetButton');
+
+      const message =
+        document
+          .getElementById('resetMessage');
+
+      if (
+        newPassword !==
+        confirmPassword
+      ) {
+
+        message.className =
+          'message error';
+
+        message.textContent =
+          'รหัสผ่านใหม่ไม่ตรงกัน';
+
+        return;
+
+      }
+
+      if (newPassword.length < 6) {
+
+        message.className =
+          'message error';
+
+        message.textContent =
+          'รหัสผ่านใหม่ต้องมีอย่างน้อย 6 ตัวอักษร';
+
+        return;
+
+      }
+
+      button.disabled = true;
+
+      button.textContent =
+        'กำลังเปลี่ยนรหัสผ่าน...';
+
+      message.className =
+        'message loading';
+
+      message.textContent =
+        'กำลังตรวจสอบข้อมูล';
+
+      try {
+
+        const response =
+          await fetch(
+            API_URL,
+            {
+
+              method: 'POST',
+
+              headers: {
+                'Content-Type':
+                  'text/plain;charset=utf-8'
+              },
+
+              body:
+                JSON.stringify({
+
+                  action:
+                    'resetPassword',
+
+                  name:
+                    name,
+
+                  username:
+                    username,
+
+                  newPassword:
+                    newPassword
+
+                })
+
+            }
+          );
+
+        const result =
+          await response.json();
+
+        if (!result.success) {
+
+          message.className =
+            'message error';
+
+          message.textContent =
+            result.message ||
+            'เปลี่ยนรหัสผ่านไม่สำเร็จ';
+
+          return;
+
+        }
+
+        message.className =
+          'message success';
+
+        message.textContent =
+          'เปลี่ยนรหัสผ่านสำเร็จ สามารถเข้าสู่ระบบได้';
+
+        document
+          .getElementById('resetForm')
+          .reset();
+
+        setTimeout(
+          function() {
+
+            showLoginPage();
+
+            document
+              .getElementById('username')
+              .value = username;
+
+          },
+          1200
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        message.className =
+          'message error';
+
+        message.textContent =
+          'ไม่สามารถเชื่อมต่อระบบได้';
+
+      } finally {
+
+        button.disabled = false;
+
+        button.textContent =
+          '🔑 เปลี่ยนรหัสผ่าน';
+
+      }
+
+    }
+  );
+
+
+
+/* =====================================================
+   แสดงหน้ารายการงาน
+===================================================== */
+
+function showTaskPage() {
+
+  document
+    .getElementById('loginPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('registerPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('resetPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('taskPage')
+    .style.display = 'block';
+
+  showUserData();
+
+  loadTasks();
+
+}
+
+
+
+/* =====================================================
+   แสดงข้อมูลผู้ใช้
+===================================================== */
+
+function showUserData() {
+
+  const userData =
+    localStorage.getItem(
+      'userData'
+    );
+
+  const userCard =
+    document.getElementById(
+      'userCard'
+    );
+
+  if (!userData) {
+
+    userCard.innerHTML = '';
+
+    return;
+
+  }
+
+  try {
+
+    const user =
+      JSON.parse(userData);
+
+    userCard.innerHTML = `
+
+      <div class="user-name">
+        👤 ${escapeHtml(user.name || '')}
+      </div>
+
+      <div class="user-role">
+        ${escapeHtml(user.role || 'ผู้ใช้งาน')}
+      </div>
+
+    `;
+
+  } catch (error) {
+
+    console.error(error);
+
+    userCard.innerHTML = '';
+
+  }
+
+}
+
+
+
+/* =====================================================
+   โหลดรายการงาน
+===================================================== */
+
+async function loadTasks() {
+
+  const token =
+    localStorage.getItem(
+      'loginToken'
+    );
+
+  const taskMessage =
+    document.getElementById(
+      'taskMessage'
+    );
+
+  const taskList =
+    document.getElementById(
+      'taskList'
+    );
+
+
+  if (!token) {
+
+    logout();
+
+    return;
+
+  }
+
+
+  taskMessage.style.display =
+    'block';
+
+  taskMessage.className =
+    'loading-tasks';
+
+  taskMessage.textContent =
+    'กำลังโหลดรายการงาน...';
+
+  taskList.innerHTML = '';
+
+
+  /*
+   * ลบข้อความแจ้งเตือนเดิมก่อนโหลดใหม่
+   */
+
+  const oldWarning =
+    document.querySelector(
+      '.due-warning'
+    );
+
+  if (oldWarning) {
+
+    oldWarning.remove();
+
+  }
+
+
+  try {
+
+    const response =
+      await fetch(
+        API_URL,
+        {
+
+          method: 'POST',
+
+          headers: {
+            'Content-Type':
+              'text/plain;charset=utf-8'
+          },
+
+          body:
+            JSON.stringify({
+
+              action: 'getTasks',
+
+              token:
+                token
+
+            })
+
+        }
+      );
+
+
+    const result =
+      await response.json();
+
+
+    if (!result.success) {
+
+      taskMessage.className =
+        'loading-tasks error';
+
+      taskMessage.textContent =
+        result.message ||
+        'ไม่สามารถโหลดรายการงานได้';
+
+
+      if (
+        result.message &&
+        result.message.includes('Session')
+      ) {
+
+        logout();
+
+      }
+
+      return;
+
+    }
+
+
+    let tasks =
+      result.tasks || [];
+
+
+    /*
+     * =====================================================
+     * เรียงรายการงาน
+     *
+     * 1. งานที่ยังไม่ครบกำหนดอยู่ด้านบน
+     * 2. เรียงตามกำหนดส่งจากใกล้ที่สุดไปไกลที่สุด
+     * 3. งานที่เลยกำหนดแล้วอยู่ล่างสุด
+     * =====================================================
+     */
+
+    tasks.sort(
+      function(a, b) {
+
+        const dateA =
+          parseTaskDueDate(
+            a.dueDate
+          );
+
+        const dateB =
+          parseTaskDueDate(
+            b.dueDate
+          );
+
+
+        /*
+         * ไม่มีวันกำหนดส่ง
+         * ให้อยู่ล่างสุด
+         */
+
+        if (!dateA && !dateB) {
+          return 0;
+        }
+
+
+        if (!dateA) {
+          return 1;
+        }
+
+
+        if (!dateB) {
+          return -1;
+        }
+
+
+        const now =
+          new Date();
+
+
+        const expiredA =
+          dateA.getTime() <
+          now.getTime();
+
+
+        const expiredB =
+          dateB.getTime() <
+          now.getTime();
+
+
+        /*
+         * งานที่เลยกำหนด
+         * ย้ายไปไว้ล่างสุด
+         */
+
+        if (
+          expiredA &&
+          !expiredB
+        ) {
+
+          return 1;
+
+        }
+
+
+        if (
+          !expiredA &&
+          expiredB
+        ) {
+
+          return -1;
+
+        }
+
+
+        /*
+         * ถ้าอยู่กลุ่มเดียวกัน
+         * เรียงตามกำหนดส่ง
+         */
+
+        return (
+          dateA.getTime() -
+          dateB.getTime()
+        );
+
+      }
+    );
+
+
+    /*
+     * ตรวจสอบงานที่ใกล้ครบกำหนด
+     * แจ้งเตือนล่วงหน้า 3 วัน
+     */
+
+    const nearDueTasks =
+      tasks.filter(
+        function(task) {
+
+          return isNearDue(
+            task.dueDate
+          );
+
+        }
+      );
+
+
+    taskMessage.style.display =
+      'none';
+
+
+    if (tasks.length === 0) {
+
+      taskMessage.className =
+        'empty-message';
+
+      taskMessage.style.display =
+        'block';
+
+      taskMessage.textContent =
+        'ยังไม่มีงานที่ต้องดำเนินการ';
+
+      return;
+
+    }
+
+
+    /*
+     * แจ้งเตือนด้านบน
+     * หากมีงานใกล้ครบกำหนด
+     */
+
+    if (
+      nearDueTasks.length > 0
+    ) {
+
+      const warning =
+        document.createElement(
+          'div'
+        );
+
+
+      warning.className =
+        'due-warning';
+
+
+      warning.textContent =
+        '⚠️ มีงานใกล้ครบกำหนด ' +
+        nearDueTasks.length +
+        ' รายการ กรุณาตรวจสอบกำหนดส่ง';
+
+
+      taskList.parentNode.insertBefore(
+        warning,
+        taskList
+      );
+
+    }
+
+
+    tasks.forEach(
+      function(task) {
+
+        taskList.appendChild(
+          createTaskCard(task)
+        );
+
+      }
+    );
+
+
+  } catch (error) {
+
+    console.error(error);
+
+
+    taskMessage.className =
+      'empty-message';
+
+    taskMessage.style.display =
+      'block';
+
+    taskMessage.textContent =
+      'ไม่สามารถเชื่อมต่อระบบได้';
+
+  }
+
+}
+
+
+
+/* =====================================================
+   สร้าง Card งาน
+===================================================== */
+
+function createTaskCard(task) {
+
+  const card =
+    document.createElement(
+      'div'
+    );
+
+
+  card.className =
+    'task-card';
+
+
+  const title =
+    escapeHtml(
+      task.title || 'ไม่มีชื่องาน'
+    );
+
+
+  const description =
+    escapeHtml(
+      task.description || ''
+    );
+
+
+  const openDate =
+    formatDate(
+      task.openDate
+    );
+
+
+  const dueDate =
+    formatDate(
+      task.dueDate
+    );
+
+
+  const nearDue =
+    isNearDue(
+      task.dueDate
+    );
+
+
+  if (nearDue) {
+
+    card.classList.add(
+      'near-due'
+    );
+
+  }
+
+
+  card.innerHTML = `
+
+    <div class="task-title">
+      ${title}
+    </div>
+
+
+    ${
+      description
+        ? `
+          <div class="task-description">
+            ${description}
+          </div>
+        `
+        : ''
+    }
+
+
+    <div class="task-date">
+
+      ${
+        openDate
+          ? `
+            <div class="date-item">
+              📅 เปิดงาน: ${openDate}
+            </div>
+          `
+          : ''
+      }
+
+
+      ${
+        dueDate
+          ? `
+            <div class="date-item">
+              ⏰ กำหนดส่ง: ${dueDate}
+            </div>
+          `
+          : ''
+      }
+
+
+      ${
+        nearDue
+          ? `
+            <div class="date-item due-warning-badge">
+              ⚠️ ใกล้ครบกำหนด
+            </div>
+          `
+          : ''
+      }
+
+    </div>
+
+
+    <button
+      class="submit-button"
+      onclick="openTask('${escapeAttribute(task.url || '')}', '${escapeAttribute(task.taskId || '')}')"
+    >
+      📝 ส่งงาน
+    </button>
+
+  `;
+
+
+  return card;
+
+}
+
+
+
+/* =====================================================
+   ตรวจสอบงานใกล้ครบกำหนด
+   แจ้งเตือนเมื่อเหลือเวลาไม่เกิน 3 วัน
+===================================================== */
+
+function isNearDue(value) {
+
+  const dueDate =
+    parseTaskDueDate(value);
+
+
+  if (!dueDate) {
+    return false;
+  }
+
+
+  const now =
+    new Date();
+
+
+  const difference =
+    dueDate.getTime() -
+    now.getTime();
+
+
+  const threeDays =
+    3 *
+    24 *
+    60 *
+    60 *
+    1000;
+
+
+  return (
+    difference > 0 &&
+    difference <= threeDays
+  );
+
+}
+
+
+
+/* =====================================================
+   แปลงวันที่จาก Google Apps Script
+   รูปแบบ dd/MM/yyyy HH:mm
+===================================================== */
+
+function parseTaskDueDate(value) {
+
+  if (!value) {
+    return null;
+  }
+
+
+  const text =
+    String(value).trim();
+
+
+  /*
+   * รูปแบบจาก Apps Script
+   * dd/MM/yyyy HH:mm
+   */
+
+  const match =
+    text.match(
+      /^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2}))?$/
+    );
+
+
+  if (match) {
+
+    const day =
+      Number(match[1]);
+
+    const month =
+      Number(match[2]) - 1;
+
+    const year =
+      Number(match[3]);
+
+    const hour =
+      Number(match[4] || 0);
+
+    const minute =
+      Number(match[5] || 0);
+
+
+    /*
+     * พ.ศ. จาก Google Sheets
+     * แปลงเป็น ค.ศ. สำหรับ JavaScript
+     */
+
+    const adjustedYear =
+      year > 2400
+        ? year - 543
+        : year;
+
+
+    const date =
+      new Date(
+        adjustedYear,
+        month,
+        day,
+        hour,
+        minute,
+        0,
+        0
+      );
+
+
+    if (
+      !isNaN(
+        date.getTime()
+      )
+    ) {
+
+      return date;
+
+    }
+
+  }
+
+
+  /*
+   * รองรับกรณีที่ backend
+   * ส่งวันที่รูปแบบอื่นมา
+   */
+
+  const fallback =
+    new Date(value);
+
+
+  if (
+    !isNaN(
+      fallback.getTime()
+    )
+  ) {
+
+    return fallback;
+
+  }
+
+
+  return null;
+
+}
+
+
+
+/* =====================================================
+   เปิดลิงก์ส่งงาน + บันทึก LOG
+===================================================== */
+
+async function openTask(
+  url,
+  taskId
+) {
+
+  const token =
+    localStorage.getItem(
+      'loginToken'
+    );
+
+
+  if (!url) {
+
+    alert(
+      'งานนี้ยังไม่มีลิงก์ส่งงาน'
+    );
+
+    return;
+
+  }
+
+
+  /*
+   * บันทึก LOG
+   */
+
+  try {
+
+    await fetch(
+      API_URL,
+      {
+
+        method: 'POST',
+
+        headers: {
+          'Content-Type':
+            'text/plain;charset=utf-8'
+        },
+
+        body:
+          JSON.stringify({
+
+            action: 'logAction',
+
+            token:
+              token,
+
+            actionType:
+              'OPEN_TASK',
+
+            taskId:
+              taskId
+
+          })
+
+        }
+
+      );
+
+  } catch (error) {
+
+    console.error(
+      'บันทึก LOG ไม่สำเร็จ',
+      error
+    );
+
+  }
+
+
+  /*
+   * เปิดลิงก์งาน
+   */
+
+  window.open(
+    url,
+    '_blank'
+  );
+
+}
+
+
+
+/* =====================================================
+   ออกจากระบบ
+===================================================== */
+
+function logout() {
+
+  localStorage.removeItem(
+    'loginToken'
+  );
+
+
+  localStorage.removeItem(
+    'userData'
+  );
+
+
+  document
+    .getElementById('taskPage')
+    .style.display = 'none';
+
+
+  document
+    .getElementById('loginPage')
+    .style.display = 'flex';
+
+
+  document
+    .getElementById('registerPage')
+    .style.display = 'none';
+
+
+  document
+    .getElementById('resetPage')
+    .style.display = 'none';
+
+
+  document
+    .getElementById('username')
+    .value = '';
+
+
+  document
+    .getElementById('password')
+    .value = '';
+
+
+  document
+    .getElementById('message')
+    .textContent = '';
+
+}
+
+
+
+/* =====================================================
+   ตรวจสอบ Session ตอนเปิดหน้า
+===================================================== */
+
+window.addEventListener(
+  'load',
+  function() {
+
+    const token =
+      localStorage.getItem(
+        'loginToken'
+      );
+
+
+    const userData =
+      localStorage.getItem(
+        'userData'
+      );
+
+
+    if (
+      token &&
+      userData
+    ) {
+
+      showTaskPage();
+
+    }
+
+  }
+);
+
+
+
+/* =====================================================
+   จัดรูปแบบวันที่
+===================================================== */
+
+function formatDate(value) {
+
+  if (!value) {
+    return '';
+  }
+
+
+  const parsedDate =
+    parseTaskDueDate(value);
+
+
+  if (!parsedDate) {
+
+    return String(value);
+
+  }
+
+
+  return parsedDate.toLocaleDateString(
+    'th-TH',
+    {
+
+      year: 'numeric',
+
+      month: 'short',
+
+      day: 'numeric'
+
+    }
+  );
+
+}
+
+
+
+/* =====================================================
+   ป้องกัน HTML
+===================================================== */
+
+function escapeHtml(value) {
+
+  return String(value)
+    .replace(
+      /&/g,
+      '&amp;'
+    )
+    .replace(
+      /</g,
+      '&lt;'
+    )
+    .replace(
+      />/g,
+      '&gt;'
+    )
+    .replace(
+      /"/g,
+      '&quot;'
+    )
+    .replace(
+      /'/g,
+      '&#039;'
+    );
+
+}
+
+
+
+/* =====================================================
+   ป้องกัน Attribute
+===================================================== */
+
+function escapeAttribute(value) {
+
+  return String(value)
+    .replace(
+      /\\/g,
+      '\\\\'
+    )
+    .replace(
+      /'/g,
+      "\\'"
+    )
+    .replace(
+      /"/g,
+      '&quot;'
+    );
+
+}
+
+
+
+/* =====================================================
+   PWA SERVICE WORKER
+===================================================== */
+
+if ('serviceWorker' in navigator) {
+
+  window.addEventListener(
+    'load',
+    function() {
+
+      navigator.serviceWorker
+        .register('./sw.js')
+        .then(
+          function(registration) {
+
+            console.log(
+              'PWA Service Worker registered:',
+              registration.scope
+            );
+
+          }
+        )
+        .catch(
+          function(error) {
+
+            console.error(
+              'PWA Service Worker registration failed:',
+              error
+            );
+
+          }
+        );
+
+    }
+  );
+
+}
+
+
+</script>
+
+</body>
+
+</html>
