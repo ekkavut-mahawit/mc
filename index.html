@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="th">
@@ -205,7 +206,8 @@
     }
 
 
-    input {
+    input,
+    textarea {
       width: 100%;
 
       padding: 13px 14px;
@@ -219,10 +221,23 @@
       outline: none;
 
       transition: 0.2s;
+
+      font-family:
+        "Sarabun",
+        Arial,
+        sans-serif;
     }
 
 
-    input:focus {
+    textarea {
+      min-height: 100px;
+
+      resize: vertical;
+    }
+
+
+    input:focus,
+    textarea:focus {
       border-color: #c62828;
 
       box-shadow:
@@ -501,7 +516,17 @@
     }
 
 
-    .logout-button {
+    .topbar-buttons {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+    }
+
+
+    .logout-button,
+    .admin-button {
       width: auto;
 
       margin: 0;
@@ -520,7 +545,13 @@
     }
 
 
-    .logout-button:hover {
+    .admin-button {
+      color: #1565c0;
+    }
+
+
+    .logout-button:hover,
+    .admin-button:hover {
       background: #f5f5f5;
     }
 
@@ -696,26 +727,30 @@
 
       font-weight: bold;
     }
-/* =====================================================
-   ตัวอักษรแจ้งเตือนใกล้ครบกำหนดกระพริบ
-===================================================== */
 
-.due-warning-badge {
-  animation: dueBlink 1s infinite;
-}
 
-@keyframes dueBlink {
+    /* =====================================================
+       ตัวอักษรแจ้งเตือนใกล้ครบกำหนดกระพริบ
+    ===================================================== */
 
-  0%,
-  100% {
-    opacity: 1;
-  }
+    .due-warning-badge {
+      animation: dueBlink 1s infinite;
+    }
 
-  50% {
-    opacity: 0.25;
-  }
 
-}
+    @keyframes dueBlink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.25;
+      }
+
+    }
+
 
     .submit-button {
       margin: 0;
@@ -750,6 +785,310 @@
       text-align: center;
 
       padding: 40px;
+
+      color: #777;
+    }
+
+
+    /* =====================================================
+       ADMIN PAGE
+    ===================================================== */
+
+    #adminPage {
+      display: none;
+
+      min-height: 100vh;
+    }
+
+
+    .admin-container {
+      width: 100%;
+
+      max-width: 900px;
+
+      margin: auto;
+
+      padding: 20px;
+    }
+
+
+    .admin-header-card {
+      background: white;
+
+      border-radius: 15px;
+
+      padding: 18px 20px;
+
+      margin-bottom: 20px;
+
+      box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.08);
+    }
+
+
+    .admin-title {
+      font-size: 22px;
+
+      font-weight: bold;
+
+      color: #c62828;
+    }
+
+
+    .admin-subtitle {
+      margin-top: 5px;
+
+      color: #777;
+
+      font-size: 14px;
+    }
+
+
+    .admin-form-card {
+      background: white;
+
+      border-radius: 15px;
+
+      padding: 20px;
+
+      margin-bottom: 20px;
+
+      box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.08);
+    }
+
+
+    .admin-form-title {
+      margin-bottom: 18px;
+
+      font-size: 19px;
+
+      font-weight: bold;
+
+      color: #333;
+    }
+
+
+    .admin-date-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 15px;
+    }
+
+
+    .admin-form-buttons {
+      display: flex;
+
+      gap: 10px;
+
+      margin-top: 10px;
+    }
+
+
+    .admin-form-buttons button {
+      margin: 0;
+    }
+
+
+    .admin-cancel-button {
+      background: #eeeeee;
+
+      color: #555;
+    }
+
+
+    .admin-cancel-button:hover {
+      background: #dddddd;
+    }
+
+
+    .admin-message {
+      min-height: 22px;
+
+      margin-top: 12px;
+
+      font-size: 14px;
+
+      text-align: center;
+    }
+
+
+    .admin-task-list {
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 15px;
+    }
+
+
+    .admin-task-card {
+      background: white;
+
+      border-radius: 15px;
+
+      padding: 18px;
+
+      box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.08);
+
+      border-left:
+        5px solid
+        #2e7d32;
+    }
+
+
+    .admin-task-card.inactive {
+      border-left-color:
+        #9e9e9e;
+
+      opacity: 0.8;
+    }
+
+
+    .admin-task-title {
+      font-size: 18px;
+
+      font-weight: bold;
+
+      color: #333;
+
+      margin-bottom: 6px;
+    }
+
+
+    .admin-task-description {
+      font-size: 14px;
+
+      color: #666;
+
+      line-height: 1.6;
+
+      margin-bottom: 10px;
+    }
+
+
+    .admin-task-url {
+      font-size: 13px;
+
+      color: #1565c0;
+
+      word-break: break-all;
+
+      margin-bottom: 10px;
+    }
+
+
+    .admin-task-dates {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-bottom: 12px;
+    }
+
+
+    .admin-status {
+      display: inline-block;
+
+      padding:
+        5px
+        9px;
+
+      border-radius: 7px;
+
+      font-size: 12px;
+
+      font-weight: bold;
+    }
+
+
+    .admin-status.active {
+      background: #e8f5e9;
+
+      color: #2e7d32;
+    }
+
+
+    .admin-status.inactive {
+      background: #eeeeee;
+
+      color: #666;
+    }
+
+
+    .admin-task-actions {
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+      gap: 8px;
+
+      margin-top: 12px;
+    }
+
+
+    .admin-task-actions button {
+      margin: 0;
+
+      padding:
+        10px
+        8px;
+
+      font-size: 14px;
+    }
+
+
+    .admin-edit-button {
+      background: #1565c0;
+    }
+
+
+    .admin-edit-button:hover {
+      background: #0d47a1;
+    }
+
+
+    .admin-toggle-button {
+      background: #ef6c00;
+    }
+
+
+    .admin-toggle-button:hover {
+      background: #e65100;
+    }
+
+
+    .admin-delete-button {
+      background: #d32f2f;
+    }
+
+
+    .admin-delete-button:hover {
+      background: #b71c1c;
+    }
+
+
+    .admin-loading {
+      background: white;
+
+      border-radius: 15px;
+
+      padding: 35px 20px;
+
+      text-align: center;
 
       color: #777;
     }
@@ -807,7 +1146,15 @@
       }
 
 
-      .logout-button {
+      .topbar-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+      }
+
+
+      .logout-button,
+      .admin-button {
         padding:
           8px
           10px;
@@ -816,7 +1163,8 @@
       }
 
 
-      .task-container {
+      .task-container,
+      .admin-container {
         padding: 15px;
       }
 
@@ -828,6 +1176,21 @@
 
       .task-title {
         font-size: 17px;
+      }
+
+
+      .admin-date-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .admin-form-buttons {
+        flex-direction: column;
+      }
+
+
+      .admin-task-actions {
+        grid-template-columns: 1fr;
       }
 
     }
@@ -846,8 +1209,6 @@
   <div class="school-header">
 
     <div class="school-header-inner">
-
-      <!-- ใส่ลิงก์โลโก้โรงเรียนตรงนี้ -->
 
       <img
         class="school-logo"
@@ -936,8 +1297,6 @@
         </div>
 
 
-        <!-- จำรหัสผ่าน -->
-
         <label
           class="remember-password"
           for="rememberPassword"
@@ -1005,7 +1364,7 @@
 
   <!-- =====================================================
        REGISTER PAGE
-    ===================================================== -->
+  ===================================================== -->
 
   <div
     class="login-container secondary-page"
@@ -1130,7 +1489,7 @@
 
   <!-- =====================================================
        RESET PASSWORD PAGE
-    ===================================================== -->
+  ===================================================== -->
 
   <div
     class="login-container secondary-page"
@@ -1276,12 +1635,26 @@
         </div>
 
 
-        <button
-          class="logout-button"
-          onclick="logout()"
-        >
-          ออกจากระบบ
-        </button>
+        <div class="topbar-buttons">
+
+          <button
+            class="admin-button"
+            id="adminButton"
+            onclick="showAdminPage()"
+            style="display:none;"
+          >
+            ⚙️ จัดการงาน
+          </button>
+
+
+          <button
+            class="logout-button"
+            onclick="logout()"
+          >
+            ออกจากระบบ
+          </button>
+
+        </div>
 
       </div>
 
@@ -1312,6 +1685,215 @@
       <div
         id="taskList"
         class="task-list"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       ADMIN PAGE
+  ===================================================== -->
+
+  <div id="adminPage">
+
+    <div class="topbar">
+
+      <div class="topbar-inner">
+
+        <div>
+
+          <div class="system-title">
+            ⚙️ จัดการงาน
+          </div>
+
+          <div class="system-subtitle">
+            ระบบรวมลิ้งก์ส่งงานวิชาการ
+          </div>
+
+        </div>
+
+
+        <div class="topbar-buttons">
+
+          <button
+            class="admin-button"
+            onclick="showTaskPage()"
+          >
+            ← กลับหน้ารายการงาน
+          </button>
+
+
+          <button
+            class="logout-button"
+            onclick="logout()"
+          >
+            ออกจากระบบ
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="admin-container">
+
+      <div class="admin-header-card">
+
+        <div class="admin-title">
+          ⚙️ จัดการงานวิชาการ
+        </div>
+
+        <div class="admin-subtitle">
+          เพิ่ม แก้ไข ลบ และเปิด–ปิดงานที่แสดงในระบบ
+        </div>
+
+      </div>
+
+
+      <div class="admin-form-card">
+
+        <div
+          class="admin-form-title"
+          id="adminFormTitle"
+        >
+          ➕ เพิ่มงานใหม่
+        </div>
+
+
+        <form id="adminTaskForm">
+
+          <div class="form-group">
+
+            <label for="adminTitle">
+              ชื่องาน
+            </label>
+
+            <input
+              type="text"
+              id="adminTitle"
+              placeholder="กรอกชื่องาน"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="adminDescription">
+              รายละเอียด / ข้อความ
+            </label>
+
+            <textarea
+              id="adminDescription"
+              placeholder="กรอกรายละเอียดหรือข้อความแจ้งครู"
+            ></textarea>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="adminUrl">
+              ลิงก์งาน
+            </label>
+
+            <input
+              type="url"
+              id="adminUrl"
+              placeholder="https://..."
+              required
+            >
+
+          </div>
+
+
+          <div class="admin-date-grid">
+
+            <div class="form-group">
+
+              <label for="adminOpenDate">
+                วันเวลาเปิดงาน
+              </label>
+
+              <input
+                type="datetime-local"
+                id="adminOpenDate"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="adminDueDate">
+                วันเวลากำหนดส่ง
+              </label>
+
+              <input
+                type="datetime-local"
+                id="adminDueDate"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="admin-form-buttons">
+
+            <button
+              type="submit"
+              id="adminSaveButton"
+            >
+              💾 เพิ่มงาน
+            </button>
+
+
+            <button
+              type="button"
+              class="admin-cancel-button"
+              id="adminCancelButton"
+              onclick="cancelAdminEdit()"
+              style="display:none;"
+            >
+              ยกเลิกการแก้ไข
+            </button>
+
+          </div>
+
+
+          <div
+            id="adminMessage"
+            class="admin-message"
+          ></div>
+
+        </form>
+
+      </div>
+
+
+      <div class="section-title">
+        📋 รายการงานทั้งหมด
+      </div>
+
+
+      <div
+        id="adminTaskMessage"
+        class="admin-loading"
+      >
+        กำลังโหลดรายการงาน...
+      </div>
+
+
+      <div
+        id="adminTaskList"
+        class="admin-task-list"
       ></div>
 
     </div>
@@ -1515,6 +2097,14 @@ function showLoginPage() {
 
   document
     .getElementById('resetPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('taskPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('adminPage')
     .style.display = 'none';
 
   document
@@ -1950,12 +2540,82 @@ function showTaskPage() {
     .style.display = 'none';
 
   document
+    .getElementById('adminPage')
+    .style.display = 'none';
+
+  document
     .getElementById('taskPage')
     .style.display = 'block';
 
   showUserData();
 
+  showAdminButton();
+
   loadTasks();
+
+}
+
+
+
+/* =====================================================
+   แสดงปุ่ม Admin
+===================================================== */
+
+function showAdminButton() {
+
+  const button =
+    document.getElementById(
+      'adminButton'
+    );
+
+  const userData =
+    localStorage.getItem(
+      'userData'
+    );
+
+
+  if (!button) {
+    return;
+  }
+
+
+  if (!userData) {
+
+    button.style.display =
+      'none';
+
+    return;
+
+  }
+
+
+  try {
+
+    const user =
+      JSON.parse(userData);
+
+
+    if (
+      String(user.role || '').toUpperCase() ===
+      'ADMIN'
+    ) {
+
+      button.style.display =
+        'block';
+
+    } else {
+
+      button.style.display =
+        'none';
+
+    }
+
+  } catch (error) {
+
+    button.style.display =
+      'none';
+
+  }
 
 }
 
@@ -2057,10 +2717,6 @@ async function loadTasks() {
   taskList.innerHTML = '';
 
 
-  /*
-   * ลบข้อความแจ้งเตือนเดิมก่อนโหลดใหม่
-   */
-
   const oldWarning =
     document.querySelector(
       '.due-warning'
@@ -2133,16 +2789,6 @@ async function loadTasks() {
       result.tasks || [];
 
 
-    /*
-     * =====================================================
-     * เรียงรายการงาน
-     *
-     * 1. งานที่ยังไม่ครบกำหนดอยู่ด้านบน
-     * 2. เรียงตามกำหนดส่งจากใกล้ที่สุดไปไกลที่สุด
-     * 3. งานที่เลยกำหนดแล้วอยู่ล่างสุด
-     * =====================================================
-     */
-
     tasks.sort(
       function(a, b) {
 
@@ -2156,11 +2802,6 @@ async function loadTasks() {
             b.dueDate
           );
 
-
-        /*
-         * ไม่มีวันกำหนดส่ง
-         * ให้อยู่ล่างสุด
-         */
 
         if (!dateA && !dateB) {
           return 0;
@@ -2191,11 +2832,6 @@ async function loadTasks() {
           now.getTime();
 
 
-        /*
-         * งานที่เลยกำหนด
-         * ย้ายไปไว้ล่างสุด
-         */
-
         if (
           expiredA &&
           !expiredB
@@ -2216,11 +2852,6 @@ async function loadTasks() {
         }
 
 
-        /*
-         * ถ้าอยู่กลุ่มเดียวกัน
-         * เรียงตามกำหนดส่ง
-         */
-
         return (
           dateA.getTime() -
           dateB.getTime()
@@ -2229,11 +2860,6 @@ async function loadTasks() {
       }
     );
 
-
-    /*
-     * ตรวจสอบงานที่ใกล้ครบกำหนด
-     * แจ้งเตือนล่วงหน้า 3 วัน
-     */
 
     const nearDueTasks =
       tasks.filter(
@@ -2266,11 +2892,6 @@ async function loadTasks() {
 
     }
 
-
-    /*
-     * แจ้งเตือนด้านบน
-     * หากมีงานใกล้ครบกำหนด
-     */
 
     if (
       nearDueTasks.length > 0
@@ -2458,6 +3079,1103 @@ function createTaskCard(task) {
 
 
 /* =====================================================
+   ADMIN
+   แสดงหน้า Admin
+===================================================== */
+
+function showAdminPage() {
+
+  const token =
+    localStorage.getItem(
+      'loginToken'
+    );
+
+  const userData =
+    localStorage.getItem(
+      'userData'
+    );
+
+
+  if (!token || !userData) {
+
+    logout();
+
+    return;
+
+  }
+
+
+  try {
+
+    const user =
+      JSON.parse(userData);
+
+
+    if (
+      String(user.role || '').toUpperCase() !==
+      'ADMIN'
+    ) {
+
+      alert(
+        'ไม่มีสิทธิ์สำหรับการจัดการงาน'
+      );
+
+      return;
+
+    }
+
+  } catch (error) {
+
+    logout();
+
+    return;
+
+  }
+
+
+  document
+    .getElementById('loginPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('registerPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('resetPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('taskPage')
+    .style.display = 'none';
+
+  document
+    .getElementById('adminPage')
+    .style.display = 'block';
+
+
+  cancelAdminEdit();
+
+  loadAdminTasks();
+
+}
+
+
+
+/* =====================================================
+   ADMIN
+   โหลดรายการงานทั้งหมด
+===================================================== */
+
+async function loadAdminTasks() {
+
+  const token =
+    localStorage.getItem(
+      'loginToken'
+    );
+
+
+  const message =
+    document.getElementById(
+      'adminTaskMessage'
+    );
+
+
+  const list =
+    document.getElementById(
+      'adminTaskList'
+    );
+
+
+  message.style.display =
+    'block';
+
+  message.className =
+    'admin-loading';
+
+  message.textContent =
+    'กำลังโหลดรายการงาน...';
+
+  list.innerHTML = '';
+
+
+  try {
+
+    const response =
+      await fetch(
+        API_URL,
+        {
+
+          method: 'POST',
+
+          headers: {
+            'Content-Type':
+              'text/plain;charset=utf-8'
+          },
+
+          body:
+            JSON.stringify({
+
+              action:
+                'getAdminTasks',
+
+              token:
+                token
+
+            })
+
+        }
+      );
+
+
+    const result =
+      await response.json();
+
+
+    if (!result.success) {
+
+      message.className =
+        'admin-loading error';
+
+      message.textContent =
+        result.message ||
+        'ไม่สามารถโหลดรายการงานได้';
+
+
+      if (
+        result.message &&
+        result.message.includes('Session')
+      ) {
+
+        logout();
+
+      }
+
+      return;
+
+    }
+
+
+    const tasks =
+      result.tasks || [];
+
+
+    message.style.display =
+      'none';
+
+
+    if (tasks.length === 0) {
+
+      message.className =
+        'admin-loading';
+
+      message.style.display =
+        'block';
+
+      message.textContent =
+        'ยังไม่มีงานในระบบ';
+
+      return;
+
+    }
+
+
+    tasks.forEach(
+      function(task) {
+
+        list.appendChild(
+          createAdminTaskCard(task)
+        );
+
+      }
+    );
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    message.className =
+      'admin-loading';
+
+    message.style.display =
+      'block';
+
+    message.textContent =
+      'ไม่สามารถเชื่อมต่อระบบได้';
+
+  }
+
+}
+
+
+
+/* =====================================================
+   ADMIN
+   สร้าง Card งาน
+===================================================== */
+
+function createAdminTaskCard(task) {
+
+  const card =
+    document.createElement(
+      'div'
+    );
+
+
+  card.className =
+    'admin-task-card';
+
+
+  if (!task.active) {
+
+    card.classList.add(
+      'inactive'
+    );
+
+  }
+
+
+  const title =
+    escapeHtml(
+      task.title || 'ไม่มีชื่องาน'
+    );
+
+
+  const description =
+    escapeHtml(
+      task.description || ''
+    );
+
+
+  const url =
+    escapeHtml(
+      task.url || ''
+    );
+
+
+  const openDate =
+    formatAdminDateDisplay(
+      task.openDate
+    );
+
+
+  const dueDate =
+    formatAdminDateDisplay(
+      task.dueDate
+    );
+
+
+  card.innerHTML = `
+
+    <div class="admin-task-title">
+      ${title}
+    </div>
+
+
+    ${
+      description
+        ? `
+          <div class="admin-task-description">
+            ${description}
+          </div>
+        `
+        : ''
+    }
+
+
+    ${
+      url
+        ? `
+          <div class="admin-task-url">
+            🔗 ${url}
+          </div>
+        `
+        : ''
+    }
+
+
+    <div class="admin-task-dates">
+
+      ${
+        openDate
+          ? `
+            <div class="date-item">
+              📅 เปิดงาน: ${openDate}
+            </div>
+          `
+          : ''
+      }
+
+
+      ${
+        dueDate
+          ? `
+            <div class="date-item">
+              ⏰ กำหนดส่ง: ${dueDate}
+            </div>
+          `
+          : ''
+      }
+
+
+      <div
+        class="admin-status ${
+          task.active
+            ? 'active'
+            : 'inactive'
+        }"
+      >
+        ${
+          task.active
+            ? '🟢 เปิดใช้งาน'
+            : '⚪ ปิดใช้งาน'
+        }
+      </div>
+
+    </div>
+
+
+    <div class="admin-task-actions">
+
+      <button
+        class="admin-edit-button"
+        onclick="editAdminTask('${escapeAttribute(task.taskId)}')"
+      >
+        ✏️ แก้ไข
+      </button>
+
+
+      <button
+        class="admin-toggle-button"
+        onclick="toggleAdminTask('${escapeAttribute(task.taskId)}', ${task.active})"
+      >
+        ${
+          task.active
+            ? '🔴 ปิดงาน'
+            : '🟢 เปิดงาน'
+        }
+      </button>
+
+
+      <button
+        class="admin-delete-button"
+        onclick="deleteAdminTask('${escapeAttribute(task.taskId)}')"
+      >
+        🗑️ ลบ
+      </button>
+
+    </div>
+
+  `;
+
+
+  return card;
+
+}
+
+
+
+/* =====================================================
+   ADMIN
+   ตัวแปรงานที่กำลังแก้ไข
+===================================================== */
+
+let editingTaskId = '';
+
+
+
+/* =====================================================
+   ADMIN
+   เพิ่ม / แก้ไขงาน
+===================================================== */
+
+document
+  .getElementById('adminTaskForm')
+  .addEventListener(
+    'submit',
+    async function(event) {
+
+      event.preventDefault();
+
+
+      const token =
+        localStorage.getItem(
+          'loginToken'
+        );
+
+
+      const title =
+        document
+          .getElementById('adminTitle')
+          .value
+          .trim();
+
+
+      const description =
+        document
+          .getElementById('adminDescription')
+          .value
+          .trim();
+
+
+      const url =
+        document
+          .getElementById('adminUrl')
+          .value
+          .trim();
+
+
+      const openDate =
+        document
+          .getElementById('adminOpenDate')
+          .value;
+
+
+      const dueDate =
+        document
+          .getElementById('adminDueDate')
+          .value;
+
+
+      const button =
+        document
+          .getElementById('adminSaveButton');
+
+
+      const message =
+        document
+          .getElementById('adminMessage');
+
+
+      button.disabled = true;
+
+
+      button.textContent =
+        editingTaskId
+          ? 'กำลังบันทึกการแก้ไข...'
+          : 'กำลังเพิ่มงาน...';
+
+
+      message.className =
+        'admin-message loading';
+
+      message.textContent =
+        'กำลังบันทึกข้อมูล';
+
+
+      try {
+
+        const data = {
+
+          action:
+            editingTaskId
+              ? 'updateTask'
+              : 'addTask',
+
+          token:
+            token,
+
+          title:
+            title,
+
+          description:
+            description,
+
+          url:
+            url,
+
+          openDate:
+            openDate,
+
+          dueDate:
+            dueDate
+
+        };
+
+
+        if (editingTaskId) {
+
+          data.taskId =
+            editingTaskId;
+
+        }
+
+
+        const response =
+          await fetch(
+            API_URL,
+            {
+
+              method: 'POST',
+
+              headers: {
+                'Content-Type':
+                  'text/plain;charset=utf-8'
+              },
+
+              body:
+                JSON.stringify(data)
+
+            }
+          );
+
+
+        const result =
+          await response.json();
+
+
+        if (!result.success) {
+
+          message.className =
+            'admin-message error';
+
+          message.textContent =
+            result.message ||
+            'บันทึกข้อมูลไม่สำเร็จ';
+
+          return;
+
+        }
+
+
+        message.className =
+          'admin-message success';
+
+        message.textContent =
+          result.message ||
+          'บันทึกข้อมูลสำเร็จ';
+
+
+        document
+          .getElementById(
+            'adminTaskForm'
+          )
+          .reset();
+
+
+        editingTaskId = '';
+
+
+        document
+          .getElementById(
+            'adminFormTitle'
+          )
+          .textContent =
+            '➕ เพิ่มงานใหม่';
+
+
+        document
+          .getElementById(
+            'adminSaveButton'
+          )
+          .textContent =
+            '💾 เพิ่มงาน';
+
+
+        document
+          .getElementById(
+            'adminCancelButton'
+          )
+          .style.display =
+            'none';
+
+
+        await loadAdminTasks();
+
+
+      } catch (error) {
+
+        console.error(error);
+
+        message.className =
+          'admin-message error';
+
+        message.textContent =
+          'ไม่สามารถเชื่อมต่อระบบได้';
+
+      } finally {
+
+        button.disabled = false;
+
+        if (!editingTaskId) {
+
+          button.textContent =
+            '💾 เพิ่มงาน';
+
+        }
+
+      }
+
+    }
+  );
+
+
+
+/* =====================================================
+   ADMIN
+   แก้ไขงาน
+===================================================== */
+
+async function editAdminTask(taskId) {
+
+  const token =
+    localStorage.getItem(
+      'loginToken'
+    );
+
+
+  try {
+
+    const response =
+      await fetch(
+        API_URL,
+        {
+
+          method: 'POST',
+
+          headers: {
+            'Content-Type':
+              'text/plain;charset=utf-8'
+          },
+
+          body:
+            JSON.stringify({
+
+              action:
+                'getAdminTasks',
+
+              token:
+                token
+
+            })
+
+        }
+      );
+
+
+    const result =
+      await response.json();
+
+
+    if (!result.success) {
+
+      alert(
+        result.message ||
+        'ไม่สามารถโหลดข้อมูลงานได้'
+      );
+
+      return;
+
+    }
+
+
+    const task =
+      (result.tasks || [])
+        .find(
+          function(item) {
+
+            return (
+              String(item.taskId) ===
+              String(taskId)
+            );
+
+          }
+        );
+
+
+    if (!task) {
+
+      alert(
+        'ไม่พบงานที่ต้องการแก้ไข'
+      );
+
+      return;
+
+    }
+
+
+    editingTaskId =
+      task.taskId;
+
+
+    document
+      .getElementById(
+        'adminTitle'
+      )
+      .value =
+        task.title || '';
+
+
+    document
+      .getElementById(
+        'adminDescription'
+      )
+      .value =
+        task.description || '';
+
+
+    document
+      .getElementById(
+        'adminUrl'
+      )
+      .value =
+        task.url || '';
+
+
+    document
+      .getElementById(
+        'adminOpenDate'
+      )
+      .value =
+        task.openDate || '';
+
+
+    document
+      .getElementById(
+        'adminDueDate'
+      )
+      .value =
+        task.dueDate || '';
+
+
+    document
+      .getElementById(
+        'adminFormTitle'
+      )
+      .textContent =
+        '✏️ แก้ไขงาน';
+
+
+    document
+      .getElementById(
+        'adminSaveButton'
+      )
+      .textContent =
+        '💾 บันทึกการแก้ไข';
+
+
+    document
+      .getElementById(
+        'adminCancelButton'
+      )
+      .style.display =
+        'block';
+
+
+    document
+      .getElementById(
+        'adminMessage'
+      )
+      .textContent = '';
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    alert(
+      'ไม่สามารถเชื่อมต่อระบบได้'
+    );
+
+  }
+
+}
+
+
+
+/* =====================================================
+   ADMIN
+   ยกเลิกการแก้ไข
+===================================================== */
+
+function cancelAdminEdit() {
+
+  editingTaskId = '';
+
+
+  const form =
+    document.getElementById(
+      'adminTaskForm'
+    );
+
+
+  if (form) {
+    form.reset();
+  }
+
+
+  const title =
+    document.getElementById(
+      'adminFormTitle'
+    );
+
+
+  if (title) {
+
+    title.textContent =
+      '➕ เพิ่มงานใหม่';
+
+  }
+
+
+  const button =
+    document.getElementById(
+      'adminSaveButton'
+    );
+
+
+  if (button) {
+
+    button.textContent =
+      '💾 เพิ่มงาน';
+
+  }
+
+
+  const cancelButton =
+    document.getElementById(
+      'adminCancelButton'
+    );
+
+
+  if (cancelButton) {
+
+    cancelButton.style.display =
+      'none';
+
+  }
+
+
+  const message =
+    document.getElementById(
+      'adminMessage'
+    );
+
+
+  if (message) {
+
+    message.className =
+      'admin-message';
+
+    message.textContent =
+      '';
+
+  }
+
+}
+
+
+
+/* =====================================================
+   ADMIN
+   เปิด / ปิดงาน
+===================================================== */
+
+async function toggleAdminTask(
+  taskId,
+  currentActive
+) {
+
+  const actionText =
+    currentActive
+      ? 'ปิดงาน'
+      : 'เปิดงาน';
+
+
+  if (
+    !confirm(
+      'ต้องการ' +
+      actionText +
+      'งานนี้หรือไม่?'
+    )
+  ) {
+
+    return;
+
+  }
+
+
+  const token =
+    localStorage.getItem(
+      'loginToken'
+    );
+
+
+  try {
+
+    const response =
+      await fetch(
+        API_URL,
+        {
+
+          method: 'POST',
+
+          headers: {
+            'Content-Type':
+              'text/plain;charset=utf-8'
+          },
+
+          body:
+            JSON.stringify({
+
+              action:
+                'toggleTask',
+
+              token:
+                token,
+
+              taskId:
+                taskId,
+
+              active:
+                !currentActive
+
+            })
+
+        }
+      );
+
+
+    const result =
+      await response.json();
+
+
+    if (!result.success) {
+
+      alert(
+        result.message ||
+        'เปลี่ยนสถานะไม่สำเร็จ'
+      );
+
+      return;
+
+    }
+
+
+    await loadAdminTasks();
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    alert(
+      'ไม่สามารถเชื่อมต่อระบบได้'
+    );
+
+  }
+
+}
+
+
+
+/* =====================================================
+   ADMIN
+   ลบงาน
+===================================================== */
+
+async function deleteAdminTask(taskId) {
+
+  if (
+    !confirm(
+      'ต้องการลบงานนี้หรือไม่?\n\nการลบจะไม่สามารถกู้คืนได้'
+    )
+  ) {
+
+    return;
+
+  }
+
+
+  const token =
+    localStorage.getItem(
+      'loginToken'
+    );
+
+
+  try {
+
+    const response =
+      await fetch(
+        API_URL,
+        {
+
+          method: 'POST',
+
+          headers: {
+            'Content-Type':
+              'text/plain;charset=utf-8'
+          },
+
+          body:
+            JSON.stringify({
+
+              action:
+                'deleteTask',
+
+              token:
+                token,
+
+              taskId:
+                taskId
+
+            })
+
+        }
+      );
+
+
+    const result =
+      await response.json();
+
+
+    if (!result.success) {
+
+      alert(
+        result.message ||
+        'ลบงานไม่สำเร็จ'
+      );
+
+      return;
+
+    }
+
+
+    if (
+      String(editingTaskId) ===
+      String(taskId)
+    ) {
+
+      cancelAdminEdit();
+
+    }
+
+
+    await loadAdminTasks();
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    alert(
+      'ไม่สามารถเชื่อมต่อระบบได้'
+    );
+
+  }
+
+}
+
+
+
+/* =====================================================
    ตรวจสอบงานใกล้ครบกำหนด
    แจ้งเตือนเมื่อเหลือเวลาไม่เกิน 3 วัน
 ===================================================== */
@@ -2515,11 +4233,6 @@ function parseTaskDueDate(value) {
     String(value).trim();
 
 
-  /*
-   * รูปแบบจาก Apps Script
-   * dd/MM/yyyy HH:mm
-   */
-
   const match =
     text.match(
       /^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2}))?$/
@@ -2543,11 +4256,6 @@ function parseTaskDueDate(value) {
     const minute =
       Number(match[5] || 0);
 
-
-    /*
-     * พ.ศ. จาก Google Sheets
-     * แปลงเป็น ค.ศ. สำหรับ JavaScript
-     */
 
     const adjustedYear =
       year > 2400
@@ -2580,11 +4288,6 @@ function parseTaskDueDate(value) {
   }
 
 
-  /*
-   * รองรับกรณีที่ backend
-   * ส่งวันที่รูปแบบอื่นมา
-   */
-
   const fallback =
     new Date(value);
 
@@ -2601,6 +4304,74 @@ function parseTaskDueDate(value) {
 
 
   return null;
+
+}
+
+
+
+/* =====================================================
+   ADMIN
+   จัดรูปแบบวันที่
+===================================================== */
+
+function formatAdminDateDisplay(value) {
+
+  if (!value) {
+    return '';
+  }
+
+
+  const text =
+    String(value).trim();
+
+
+  const match =
+    text.match(
+      /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/
+    );
+
+
+  if (match) {
+
+    const date =
+      new Date(
+        Number(match[1]),
+        Number(match[2]) - 1,
+        Number(match[3]),
+        Number(match[4]),
+        Number(match[5])
+      );
+
+
+    if (
+      !isNaN(
+        date.getTime()
+      )
+    ) {
+
+      return date.toLocaleDateString(
+        'th-TH',
+        {
+
+          year: 'numeric',
+
+          month: 'short',
+
+          day: 'numeric',
+
+          hour: '2-digit',
+
+          minute: '2-digit'
+
+        }
+      );
+
+    }
+
+  }
+
+
+  return escapeHtml(value);
 
 }
 
@@ -2631,10 +4402,6 @@ async function openTask(
 
   }
 
-
-  /*
-   * บันทึก LOG
-   */
 
   try {
 
@@ -2678,10 +4445,6 @@ async function openTask(
   }
 
 
-  /*
-   * เปิดลิงก์งาน
-   */
-
   window.open(
     url,
     '_blank'
@@ -2713,6 +4476,11 @@ function logout() {
 
 
   document
+    .getElementById('adminPage')
+    .style.display = 'none';
+
+
+  document
     .getElementById('loginPage')
     .style.display = 'flex';
 
@@ -2726,11 +4494,6 @@ function logout() {
     .getElementById('resetPage')
     .style.display = 'none';
 
-
-  /*
-   * ถ้าเลือก "จำรหัสผ่าน"
-   * ให้คงชื่อผู้ใช้และรหัสผ่านไว้
-   */
 
   const savedUsername =
     localStorage.getItem(
@@ -2976,3 +4739,4 @@ function escapeAttribute(value) {
 </body>
 
 </html>
+
