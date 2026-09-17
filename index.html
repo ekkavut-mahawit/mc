@@ -696,7 +696,26 @@
 
       font-weight: bold;
     }
+/* =====================================================
+   ตัวอักษรแจ้งเตือนใกล้ครบกำหนดกระพริบ
+===================================================== */
 
+.due-warning-badge {
+  animation: dueBlink 1s infinite;
+}
+
+@keyframes dueBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+
+}
 
     .submit-button {
       margin: 0;
