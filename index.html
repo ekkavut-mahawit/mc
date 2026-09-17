@@ -11,42 +11,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <link
-    rel="manifest"
-    href="./manifest.json"
-  >
-
-  <meta
-    name="theme-color"
-    content="#c62828"
-  >
-
-  <meta
-    name="mobile-web-app-capable"
-    content="yes"
-  >
-
-  <meta
-    name="apple-mobile-web-app-capable"
-    content="yes"
-  >
-
-  <meta
-    name="apple-mobile-web-app-status-bar-style"
-    content="default"
-  >
-
-  <meta
-    name="apple-mobile-web-app-title"
-    content="ระบบรวมลิ้งก์ส่งงานวิชาการ มช."
-  >
-
-  <link
-    rel="apple-touch-icon"
-    href="./logo.png"
-  >
-
-  <title>ระบบรวมลิ้งก์ส่งงานวิชาการ มช.</title>
+  <title>ระบบรวมลิ้งก์ส่งงานวิชาการ</title>
 
   <style>
 
@@ -301,6 +266,57 @@
     }
 
 
+    /* =====================================================
+       จำรหัสผ่าน
+    ===================================================== */
+
+    .remember-password {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: flex-start;
+
+      gap: 8px;
+
+      margin:
+        -5px
+        0
+        12px;
+
+      text-align: left;
+
+      font-size: 14px;
+
+      font-weight: normal;
+
+      color: #555;
+
+      cursor: pointer;
+    }
+
+
+    .remember-password input {
+      width: 17px;
+      height: 17px;
+
+      margin: 0;
+
+      padding: 0;
+
+      accent-color: #c62828;
+
+      cursor: pointer;
+
+      flex-shrink: 0;
+    }
+
+
+    .remember-password span {
+      cursor: pointer;
+    }
+
+
     .message {
       margin-top: 18px;
 
@@ -331,47 +347,6 @@
       font-size: 12px;
 
       color: #999;
-    }
-
-
-    /* =====================================================
-       INSTALL PWA
-    ===================================================== */
-
-    .install-button {
-      display: none;
-
-      margin-top: 15px;
-
-      background: #2e7d32;
-    }
-
-
-    .install-button:hover {
-      background: #256628;
-    }
-
-
-    .install-message {
-      display: none;
-
-      margin-top: 10px;
-
-      padding: 10px 12px;
-
-      border-radius: 8px;
-
-      background: #fff3cd;
-
-      border:
-        1px solid
-        #ffe08a;
-
-      color: #856404;
-
-      font-size: 13px;
-
-      line-height: 1.5;
     }
 
 
@@ -853,6 +828,8 @@
 
     <div class="school-header-inner">
 
+      <!-- ใส่ลิงก์โลโก้โรงเรียนตรงนี้ -->
+
       <img
         class="school-logo"
         src="https://ekkavut-mahawit.github.io/smic-model/logo.png"
@@ -867,7 +844,7 @@
         </div>
 
         <div class="school-system-name">
-          ระบบรวมลิ้งก์ส่งงานวิชาการ มช.
+          ระบบรวมลิ้งก์ส่งงานวิชาการ
         </div>
 
       </div>
@@ -895,7 +872,7 @@
 
 
       <h1>
-        ระบบรวมลิ้งก์ส่งงานวิชาการ มช.
+        ระบบรวมลิ้งก์ส่งงานวิชาการ
       </h1>
 
 
@@ -940,6 +917,25 @@
         </div>
 
 
+        <!-- จำรหัสผ่าน -->
+
+        <label
+          class="remember-password"
+          for="rememberPassword"
+        >
+
+          <input
+            type="checkbox"
+            id="rememberPassword"
+          >
+
+          <span>
+            จำรหัสผ่าน
+          </span>
+
+        </label>
+
+
         <button
           type="submit"
           id="loginButton"
@@ -948,25 +944,6 @@
         </button>
 
       </form>
-
-
-      <!-- ===================================================
-           INSTALL PWA
-      =================================================== -->
-
-      <button
-        type="button"
-        id="installButton"
-        class="install-button"
-      >
-        📱 ติดตั้งแอปบนหน้าจอ
-      </button>
-
-
-      <div
-        id="installMessage"
-        class="install-message"
-      ></div>
 
 
       <div class="login-links">
@@ -1009,7 +986,7 @@
 
   <!-- =====================================================
        REGISTER PAGE
-  ===================================================== -->
+    ===================================================== -->
 
   <div
     class="login-container secondary-page"
@@ -1134,7 +1111,7 @@
 
   <!-- =====================================================
        RESET PASSWORD PAGE
-  ===================================================== -->
+    ===================================================== -->
 
   <div
     class="login-container secondary-page"
@@ -1270,7 +1247,7 @@
         <div>
 
           <div class="system-title">
-            📚 ระบบรวมลิ้งก์ส่งงานวิชาการ มช.
+            📚 ระบบรวมลิ้งก์ส่งงานวิชาการ
           </div>
 
           <div class="system-subtitle">
@@ -1337,164 +1314,6 @@ const API_URL =
 
 
 /* =====================================================
-   PWA INSTALL
-===================================================== */
-
-let deferredInstallPrompt = null;
-
-
-window.addEventListener(
-  'beforeinstallprompt',
-  function(event) {
-
-    event.preventDefault();
-
-    deferredInstallPrompt =
-      event;
-
-
-    const installButton =
-      document.getElementById(
-        'installButton'
-      );
-
-
-    if (installButton) {
-
-      installButton.style.display =
-        'block';
-
-    }
-
-  }
-);
-
-
-window.addEventListener(
-  'appinstalled',
-  function() {
-
-    deferredInstallPrompt =
-      null;
-
-
-    const installButton =
-      document.getElementById(
-        'installButton'
-      );
-
-
-    if (installButton) {
-
-      installButton.style.display =
-        'none';
-
-    }
-
-  }
-);
-
-
-document
-  .getElementById('installButton')
-  .addEventListener(
-    'click',
-    async function() {
-
-      const installButton =
-        document.getElementById(
-          'installButton'
-        );
-
-      const installMessage =
-        document.getElementById(
-          'installMessage'
-        );
-
-
-      /*
-       * Chrome พบคำสั่งติดตั้ง
-       */
-
-      if (deferredInstallPrompt) {
-
-        deferredInstallPrompt.prompt();
-
-
-        const result =
-          await deferredInstallPrompt.userChoice;
-
-
-        if (
-          result &&
-          result.outcome === 'accepted'
-        ) {
-
-          installButton.style.display =
-            'none';
-
-        }
-
-
-        deferredInstallPrompt =
-          null;
-
-        return;
-
-      }
-
-
-      /*
-       * กรณีเปิดจาก LINE
-       * หรือเบราว์เซอร์ยังไม่รองรับ
-       */
-
-      installMessage.style.display =
-        'block';
-
-      installMessage.textContent =
-        'หากไม่สามารถติดตั้งได้ กรุณาเปิดลิงก์นี้ด้วย Google Chrome แล้วกดปุ่มติดตั้งอีกครั้ง';
-
-    }
-  );
-
-
-
-/* =====================================================
-   ตรวจสอบว่าเปิดในโหมดติดตั้งแล้วหรือไม่
-===================================================== */
-
-function isStandaloneMode() {
-
-  return (
-    window.matchMedia(
-      '(display-mode: standalone)'
-    ).matches ||
-    window.navigator.standalone === true
-  );
-
-}
-
-
-if (isStandaloneMode()) {
-
-  const installButton =
-    document.getElementById(
-      'installButton'
-    );
-
-  if (installButton) {
-
-    installButton.style.display =
-      'none';
-
-  }
-
-}
-
-
-
-/* =====================================================
    LOGIN
 ===================================================== */
 
@@ -1516,6 +1335,11 @@ document
         document
           .getElementById('password')
           .value;
+
+      const rememberPassword =
+        document
+          .getElementById('rememberPassword')
+          .checked;
 
       const button =
         document
@@ -1581,6 +1405,36 @@ document
           return;
 
         }
+
+
+        /* =================================================
+           จำรหัสผ่าน
+        ================================================= */
+
+        if (rememberPassword) {
+
+          localStorage.setItem(
+            'savedUsername',
+            username
+          );
+
+          localStorage.setItem(
+            'savedPassword',
+            password
+          );
+
+        } else {
+
+          localStorage.removeItem(
+            'savedUsername'
+          );
+
+          localStorage.removeItem(
+            'savedPassword'
+          );
+
+        }
+
 
         localStorage.setItem(
           'loginToken',
@@ -2792,9 +2646,8 @@ async function openTask(
 
           })
 
-        }
-
-      );
+      }
+    );
 
   } catch (error) {
 
@@ -2855,19 +2708,114 @@ function logout() {
     .style.display = 'none';
 
 
-  document
-    .getElementById('username')
-    .value = '';
+  /*
+   * ถ้าเลือก "จำรหัสผ่าน"
+   * ให้คงชื่อผู้ใช้และรหัสผ่านไว้
+   */
+
+  const savedUsername =
+    localStorage.getItem(
+      'savedUsername'
+    );
+
+  const savedPassword =
+    localStorage.getItem(
+      'savedPassword'
+    );
+
+
+  if (savedUsername) {
+
+    document
+      .getElementById('username')
+      .value = savedUsername;
+
+  } else {
+
+    document
+      .getElementById('username')
+      .value = '';
+
+  }
+
+
+  if (savedPassword) {
+
+    document
+      .getElementById('password')
+      .value = savedPassword;
+
+  } else {
+
+    document
+      .getElementById('password')
+      .value = '';
+
+  }
 
 
   document
-    .getElementById('password')
-    .value = '';
+    .getElementById('rememberPassword')
+    .checked =
+      !!(
+        savedUsername &&
+        savedPassword
+      );
 
 
   document
     .getElementById('message')
     .textContent = '';
+
+}
+
+
+
+/* =====================================================
+   โหลดข้อมูลจำรหัสผ่าน
+===================================================== */
+
+function loadSavedLogin() {
+
+  const savedUsername =
+    localStorage.getItem(
+      'savedUsername'
+    );
+
+  const savedPassword =
+    localStorage.getItem(
+      'savedPassword'
+    );
+
+
+  if (savedUsername) {
+
+    document
+      .getElementById('username')
+      .value = savedUsername;
+
+  }
+
+
+  if (savedPassword) {
+
+    document
+      .getElementById('password')
+      .value = savedPassword;
+
+  }
+
+
+  if (
+    savedUsername &&
+    savedPassword
+  ) {
+
+    document
+      .getElementById('rememberPassword')
+      .checked = true;
+
+  }
 
 }
 
@@ -2880,6 +2828,9 @@ function logout() {
 window.addEventListener(
   'load',
   function() {
+
+    loadSavedLogin();
+
 
     const token =
       localStorage.getItem(
@@ -2997,46 +2948,6 @@ function escapeAttribute(value) {
       /"/g,
       '&quot;'
     );
-
-}
-
-
-
-/* =====================================================
-   PWA SERVICE WORKER
-===================================================== */
-
-if ('serviceWorker' in navigator) {
-
-  window.addEventListener(
-    'load',
-    function() {
-
-      navigator.serviceWorker
-        .register('./sw.js')
-        .then(
-          function(registration) {
-
-            console.log(
-              'PWA Service Worker registered:',
-              registration.scope
-            );
-
-          }
-        )
-        .catch(
-          function(error) {
-
-            console.error(
-              'PWA Service Worker registration failed:',
-              error
-            );
-
-          }
-        );
-
-    }
-  );
 
 }
 
