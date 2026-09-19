@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="th">
@@ -672,6 +671,7 @@
       align-items: flex-end;
     }
 
+
     .task-hero-image {
       position: absolute;
       inset: 0;
@@ -680,11 +680,17 @@
       object-fit: cover;
     }
 
+
     .task-hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.78));
+      background: linear-gradient(
+        180deg,
+        rgba(0,0,0,.12),
+        rgba(0,0,0,.78)
+      );
     }
+
 
     .task-hero-content {
       position: relative;
@@ -693,6 +699,7 @@
       padding: 24px 20px 18px;
       color: white;
     }
+
 
     .task-icon {
       display: inline-flex;
@@ -705,6 +712,7 @@
       vertical-align: middle;
     }
 
+
     .task-hero .task-title {
       color: white;
       margin: 0;
@@ -712,10 +720,12 @@
       line-height: 1.4;
     }
 
+
     .task-hero .task-description {
       color: rgba(255,255,255,.94);
       margin: 8px 0 0;
     }
+
 
     .task-card.has-image {
       padding-top: 20px;
@@ -943,6 +953,7 @@
       outline: none;
     }
 
+
     .admin-image-upload {
       padding: 12px;
       border: 1px dashed #bbb;
@@ -950,12 +961,14 @@
       background: #fafafa;
     }
 
+
     .admin-image-help {
       margin-top: 7px;
       color: #777;
       font-size: 13px;
       line-height: 1.5;
     }
+
 
     .admin-image-preview {
       display: none;
@@ -966,6 +979,7 @@
       border: 1px solid #ddd;
     }
 
+
     .admin-image-preview img {
       display: block;
       width: 100%;
@@ -973,11 +987,13 @@
       object-fit: cover;
     }
 
+
     .admin-image-preview-info {
       padding: 9px 12px;
       font-size: 13px;
       color: #555;
     }
+
 
     .admin-image-preview-actions {
       display: flex;
@@ -985,22 +1001,26 @@
       padding: 0 12px 12px;
     }
 
+
     .admin-image-preview-actions button {
       margin: 0;
       padding: 8px 10px;
       font-size: 13px;
     }
 
+
     .admin-image-remove-button {
       background: #eeeeee;
       color: #c62828;
     }
+
 
     .admin-task-icon {
       font-size: 26px;
       margin-right: 7px;
       vertical-align: middle;
     }
+
 
     .admin-task-image-badge {
       display: inline-block;
@@ -1013,6 +1033,7 @@
       font-weight: bold;
       vertical-align: middle;
     }
+
 
     .admin-task-image-preview {
       width: 100%;
@@ -1332,9 +1353,11 @@
         margin: -16px -16px 14px;
       }
 
+
       .task-hero-content {
         padding: 20px 16px 15px;
       }
+
 
       .task-hero .task-title {
         font-size: 18px;
@@ -1376,6 +1399,7 @@
       scroll-behavior: smooth;
     }
 
+
     body {
       width: 100%;
       min-width: 0;
@@ -1383,11 +1407,13 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+
     button,
     input,
     textarea {
       touch-action: manipulation;
     }
+
 
     button {
       min-height: 46px;
@@ -1395,16 +1421,19 @@
       appearance: none;
     }
 
+
     input,
     textarea {
       max-width: 100%;
       min-width: 0;
     }
 
+
     .school-header {
       padding-left: max(14px, env(safe-area-inset-left));
       padding-right: max(14px, env(safe-area-inset-right));
     }
+
 
     .school-header-inner,
     .topbar-inner,
@@ -1413,10 +1442,12 @@
       width: 100%;
     }
 
+
     .school-info,
     .topbar-inner > div:first-child {
       min-width: 0;
     }
+
 
     .school-name,
     .school-system-name,
@@ -1430,11 +1461,13 @@
       word-break: break-word;
     }
 
+
     .topbar {
       padding-top: max(14px, env(safe-area-inset-top));
       padding-left: max(16px, env(safe-area-inset-left));
       padding-right: max(16px, env(safe-area-inset-right));
     }
+
 
     .task-container,
     .admin-container {
@@ -1442,6 +1475,7 @@
       padding-right: max(16px, env(safe-area-inset-right));
       padding-bottom: max(24px, env(safe-area-inset-bottom));
     }
+
 
     .task-card,
     .admin-task-card,
@@ -1452,15 +1486,18 @@
       overflow: hidden;
     }
 
+
     .task-date,
     .admin-task-dates {
       align-items: stretch;
     }
 
+
     .date-item {
       max-width: 100%;
       overflow-wrap: anywhere;
     }
+
 
     .submit-button,
     .admin-task-actions button,
@@ -1468,20 +1505,25 @@
       min-height: 46px;
     }
 
+
     button:active:not(:disabled) {
       transform: translateY(1px);
     }
 
+
     @media (min-width: 601px) {
+
       .school-header {
         padding-top: 14px;
         padding-bottom: 14px;
       }
 
+
       .task-container,
       .admin-container {
         max-width: 960px;
       }
+
 
       .task-card,
       .admin-task-card,
@@ -1490,85 +1532,106 @@
       .admin-form-card {
         border-radius: 16px;
       }
+
     }
 
+
     @media (min-width: 601px) and (max-width: 1024px) {
+
       .school-header-inner {
         max-width: 960px;
       }
+
 
       .school-logo {
         width: 58px;
         height: 58px;
       }
 
+
       .school-name {
         font-size: 20px;
       }
+
 
       .topbar {
         padding-top: 14px;
         padding-bottom: 14px;
       }
 
+
       .topbar-inner {
         max-width: 960px;
         gap: 12px;
       }
 
+
       .system-title {
         font-size: 19px;
       }
+
 
       .topbar-buttons {
         flex-wrap: wrap;
         justify-content: flex-end;
       }
 
+
       .logout-button,
       .admin-button {
         min-height: 44px;
       }
+
 
       .task-container,
       .admin-container {
         padding-top: 18px;
       }
 
+
       .admin-date-grid {
         grid-template-columns: 1fr 1fr;
       }
+
     }
 
+
     @media (max-width: 600px) {
+
       .school-header {
         padding-top: 10px;
         padding-bottom: 10px;
       }
+
 
       .school-header-inner {
         width: 100%;
         gap: 9px;
       }
 
+
       .school-logo {
         width: 48px;
         height: 48px;
       }
 
+
       .school-info {
         flex: 1;
       }
+
 
       .school-name {
         font-size: clamp(15px, 4.5vw, 18px);
         line-height: 1.25;
       }
 
+
       .school-system-name {
         font-size: 11px;
         line-height: 1.35;
       }
+
 
       .login-container {
         min-height: calc(100svh - 72px);
@@ -1577,10 +1640,12 @@
         padding-top: 24px;
       }
 
+
       .login-card {
         border-radius: 16px;
         padding: 26px 18px;
       }
+
 
       .logo {
         width: 68px;
@@ -1589,23 +1654,28 @@
         margin-bottom: 15px;
       }
 
+
       h1 {
         font-size: 21px;
         line-height: 1.35;
       }
+
 
       .subtitle {
         margin-bottom: 22px;
         font-size: 14px;
       }
 
+
       .form-group {
         margin-bottom: 15px;
       }
 
+
       label {
         font-size: 14px;
       }
+
 
       input,
       textarea {
@@ -1613,28 +1683,34 @@
         padding: 12px 13px;
       }
 
+
       button {
         min-height: 48px;
         font-size: 16px;
       }
+
 
       .remember-password {
         min-height: 40px;
         margin-top: -3px;
       }
 
+
       .login-links {
         gap: 6px 14px;
       }
+
 
       .login-link {
         min-height: 40px;
       }
 
+
       .topbar {
         padding-top: 12px;
         padding-bottom: 12px;
       }
+
 
       .topbar-inner {
         align-items: stretch;
@@ -1642,14 +1718,17 @@
         gap: 10px;
       }
 
+
       .system-title {
         font-size: 17px;
         line-height: 1.3;
       }
 
+
       .system-subtitle {
         font-size: 12px;
       }
+
 
       .topbar-buttons {
         width: 100%;
@@ -1657,6 +1736,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
       }
+
 
       .logout-button,
       .admin-button {
@@ -1666,10 +1746,12 @@
         font-size: 13px;
       }
 
+
       .task-container,
       .admin-container {
         padding: 12px 14px 24px;
       }
+
 
       .user-card {
         padding: 15px 16px;
@@ -1677,54 +1759,65 @@
         border-radius: 13px;
       }
 
+
       .user-name {
         font-size: 17px;
       }
+
 
       .section-title {
         margin: 8px 0 12px;
         font-size: 18px;
       }
 
+
       .task-list,
       .admin-task-list {
         gap: 10px;
       }
+
 
       .task-card {
         padding: 15px;
         border-radius: 13px;
       }
 
+
       .task-title {
         font-size: 17px;
         line-height: 1.4;
       }
+
 
       .task-description {
         font-size: 14px;
         line-height: 1.55;
       }
 
+
       .task-date {
         flex-direction: column;
         gap: 6px;
       }
+
 
       .date-item {
         width: 100%;
         padding: 7px 9px;
       }
 
+
       .submit-button {
         margin-top: 2px;
         min-height: 48px;
       }
 
+
       .due-warning {
         font-size: 13px;
         padding: 10px 12px;
       }
+
 
       .admin-header-card,
       .admin-form-card {
@@ -1733,36 +1826,44 @@
         border-radius: 13px;
       }
 
+
       .admin-title {
         font-size: 19px;
       }
 
+
       .admin-form-title {
         font-size: 17px;
       }
+
 
       .admin-date-grid {
         grid-template-columns: 1fr;
         gap: 0;
       }
 
+
       .admin-form-buttons {
         gap: 8px;
       }
+
 
       .admin-task-card {
         padding: 15px;
         border-radius: 13px;
       }
 
+
       .admin-task-title {
         font-size: 17px;
       }
+
 
       .admin-task-actions {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 6px;
       }
+
 
       .admin-task-actions button {
         min-height: 44px;
@@ -1770,40 +1871,50 @@
         font-size: 13px;
       }
 
+
       .empty-message,
       .loading-tasks,
       .admin-loading {
         padding: 28px 15px;
       }
+
     }
 
+
     @media (max-width: 380px) {
+
       .school-logo {
         width: 43px;
         height: 43px;
       }
 
+
       .school-name {
         font-size: 14px;
       }
 
+
       .school-system-name {
         font-size: 10px;
       }
+
 
       .login-container {
         padding-left: 10px;
         padding-right: 10px;
       }
 
+
       .login-card {
         padding-left: 14px;
         padding-right: 14px;
       }
 
+
       .topbar-buttons {
         grid-template-columns: 1fr;
       }
+
 
       .task-container,
       .admin-container {
@@ -1811,23 +1922,30 @@
         padding-right: 10px;
       }
 
+
       .admin-task-actions {
         grid-template-columns: 1fr;
       }
+
     }
 
+
     @media (hover: none) and (pointer: coarse) {
+
       button:hover {
         background: inherit;
       }
+
 
       .login-link:hover {
         background: none;
       }
 
+
       button:active:not(:disabled) {
         opacity: 0.86;
       }
+
     }
 
   </style>
@@ -2474,9 +2592,20 @@
                 id="adminImagePreview"
                 class="admin-image-preview"
               >
-                <img id="adminImagePreviewImg" src="" alt="ตัวอย่างรูปภาพ">
-                <div id="adminImagePreviewInfo" class="admin-image-preview-info"></div>
+
+                <img
+                  id="adminImagePreviewImg"
+                  src=""
+                  alt="ตัวอย่างรูปภาพ"
+                >
+
+                <div
+                  id="adminImagePreviewInfo"
+                  class="admin-image-preview-info"
+                ></div>
+
                 <div class="admin-image-preview-actions">
+
                   <button
                     type="button"
                     id="adminImageRemoveButton"
@@ -2485,7 +2614,9 @@
                   >
                     🗑️ ลบรูป
                   </button>
+
                 </div>
+
               </div>
 
             </div>
@@ -2621,6 +2752,66 @@
 
 const API_URL =
   'https://script.google.com/macros/s/AKfycbwhODtrWOcFDIl-YGu5vpvxS8m0DSgC_KLULsr6zmfsJqzlOUIz-J5qpnb0Qfth594Y/exec';
+
+
+
+/* =====================================================
+   รูปภาพงาน
+   ใช้ imageFileId เป็นหลัก
+   และใช้ imageUrl เป็น fallback
+===================================================== */
+
+function getTaskImageUrl(task) {
+
+  if (!task) {
+    return '';
+  }
+
+
+  const fileId =
+    String(
+      task.imageFileId || ''
+    ).trim();
+
+
+  const imageUrl =
+    String(
+      task.imageUrl || ''
+    ).trim();
+
+
+  if (fileId) {
+
+    return (
+      'https://drive.google.com/thumbnail?id=' +
+      encodeURIComponent(fileId) +
+      '&sz=w1600'
+    );
+
+  }
+
+
+  return imageUrl;
+
+}
+
+
+/* =====================================================
+   URL สำรองของรูปภาพงาน
+===================================================== */
+
+function getTaskImageFallbackUrl(task) {
+
+  if (!task) {
+    return '';
+  }
+
+
+  return String(
+    task.imageUrl || ''
+  ).trim();
+
+}
 
 
 
@@ -3691,70 +3882,201 @@ function createTaskCard(task) {
   const nearDue =
     isNearDue(task.dueDate);
 
+
   if (nearDue) {
     card.classList.add('near-due');
   }
 
+
+  /* ===================================================
+     ใช้ imageFileId เป็นหลัก
+  =================================================== */
+
+  const imageUrl =
+    getTaskImageUrl(task);
+
+  const fallbackImageUrl =
+    getTaskImageFallbackUrl(task);
+
+
   const hasImage =
-    String(task.imageUrl || '').trim() !== '';
+    imageUrl !== '';
+
 
   if (hasImage) {
 
     card.classList.add('has-image');
 
-    const hero = document.createElement('div');
-    hero.className = 'task-hero';
+    const hero =
+      document.createElement('div');
 
-    const image = document.createElement('img');
-    image.className = 'task-hero-image';
-    image.src = task.imageUrl;
-    image.alt = '';
-    image.loading = 'lazy';
-    image.referrerPolicy = 'no-referrer';
+    hero.className =
+      'task-hero';
 
-    image.onerror = function() {
-      hero.classList.add('image-load-error');
-      image.style.display = 'none';
-    };
 
-    const overlay = document.createElement('div');
-    overlay.className = 'task-hero-overlay';
+    const image =
+      document.createElement('img');
 
-    const content = document.createElement('div');
-    content.className = 'task-hero-content';
+    image.className =
+      'task-hero-image';
+
+
+    image.src =
+      imageUrl;
+
+    image.alt =
+      '';
+
+    image.loading =
+      'lazy';
+
+    image.referrerPolicy =
+      'no-referrer';
+
+
+    let triedFallback =
+      false;
+
+
+    image.onerror =
+      function() {
+
+        if (
+          !triedFallback &&
+          fallbackImageUrl &&
+          fallbackImageUrl !== imageUrl
+        ) {
+
+          triedFallback =
+            true;
+
+          image.src =
+            fallbackImageUrl;
+
+          return;
+
+        }
+
+
+        hero.classList.add(
+          'image-load-error'
+        );
+
+        image.style.display =
+          'none';
+
+      };
+
+
+    const overlay =
+      document.createElement('div');
+
+    overlay.className =
+      'task-hero-overlay';
+
+
+    const content =
+      document.createElement('div');
+
+    content.className =
+      'task-hero-content';
+
 
     content.innerHTML = `
+
       <div class="task-title">
-        ${icon ? `<span class="task-icon">${escapeHtml(icon)}</span>` : ''}
+
+        ${
+          icon
+            ? `<span class="task-icon">${escapeHtml(icon)}</span>`
+            : ''
+        }
+
         ${title}
+
       </div>
-      ${description ? `<div class="task-description">${description}</div>` : ''}
+
+      ${
+        description
+          ? `<div class="task-description">${description}</div>`
+          : ''
+      }
+
     `;
 
-    hero.appendChild(image);
-    hero.appendChild(overlay);
-    hero.appendChild(content);
-    card.appendChild(hero);
+
+    hero.appendChild(
+      image
+    );
+
+    hero.appendChild(
+      overlay
+    );
+
+    hero.appendChild(
+      content
+    );
+
+    card.appendChild(
+      hero
+    );
+
 
   } else {
 
     card.innerHTML = `
+
       <div class="task-title">
-        ${icon ? `<span class="task-icon">${escapeHtml(icon)}</span>` : ''}
+
+        ${
+          icon
+            ? `<span class="task-icon">${escapeHtml(icon)}</span>`
+            : ''
+        }
+
         ${title}
+
       </div>
-      ${description ? `<div class="task-description">${description}</div>` : ''}
+
+      ${
+        description
+          ? `<div class="task-description">${description}</div>`
+          : ''
+      }
+
     `;
 
   }
 
-  const body = document.createElement('div');
+
+  const body =
+    document.createElement('div');
+
+
   body.innerHTML = `
+
     <div class="task-date">
-      ${openDate ? `<div class="date-item">📅 เปิดงาน: ${openDate}</div>` : ''}
-      ${dueDate ? `<div class="date-item">⏰ กำหนดส่ง: ${dueDate}</div>` : ''}
-      ${nearDue ? `<div class="date-item due-warning-badge">⚠️ ใกล้ครบกำหนด</div>` : ''}
+
+      ${
+        openDate
+          ? `<div class="date-item">📅 เปิดงาน: ${openDate}</div>`
+          : ''
+      }
+
+      ${
+        dueDate
+          ? `<div class="date-item">⏰ กำหนดส่ง: ${dueDate}</div>`
+          : ''
+      }
+
+      ${
+        nearDue
+          ? `<div class="date-item due-warning-badge">⚠️ ใกล้ครบกำหนด</div>`
+          : ''
+      }
+
     </div>
+
 
     <button
       class="submit-button"
@@ -3762,16 +4084,36 @@ function createTaskCard(task) {
     >
       📝 ส่งงาน
     </button>
+
   `;
 
-  const submitButton = body.querySelector('.submit-button');
-  submitButton.addEventListener('click', function() {
-    openTask(task.url || '', task.taskId || '');
-  });
 
-  card.appendChild(body);
+  const submitButton =
+    body.querySelector(
+      '.submit-button'
+    );
+
+
+  submitButton.addEventListener(
+    'click',
+    function() {
+
+      openTask(
+        task.url || '',
+        task.taskId || ''
+      );
+
+    }
+  );
+
+
+  card.appendChild(
+    body
+  );
+
 
   return card;
+
 }
 
 
@@ -4015,59 +4357,236 @@ async function loadAdminTasks() {
 
 function createAdminTaskCard(task) {
 
-  const card = document.createElement('div');
-  card.className = 'admin-task-card';
+  const card =
+    document.createElement('div');
+
+  card.className =
+    'admin-task-card';
+
 
   if (!task.active) {
     card.classList.add('inactive');
   }
 
-  const title = escapeHtml(task.title || 'ไม่มีชื่องาน');
-  const description = escapeHtml(task.description || '');
-  const url = escapeHtml(task.url || '');
-  const icon = escapeHtml(task.icon || '');
-  const openDate = formatAdminDateDisplay(task.openDate);
-  const dueDate = formatAdminDateDisplay(task.dueDate);
+
+  const title =
+    escapeHtml(
+      task.title ||
+      'ไม่มีชื่องาน'
+    );
+
+
+  const description =
+    escapeHtml(
+      task.description ||
+      ''
+    );
+
+
+  const url =
+    escapeHtml(
+      task.url ||
+      ''
+    );
+
+
+  const icon =
+    escapeHtml(
+      task.icon ||
+      ''
+    );
+
+
+  const openDate =
+    formatAdminDateDisplay(
+      task.openDate
+    );
+
+
+  const dueDate =
+    formatAdminDateDisplay(
+      task.dueDate
+    );
+
+
+  /* ===================================================
+     ใช้ imageFileId เป็นหลัก
+  =================================================== */
+
+  const imageUrl =
+    getTaskImageUrl(task);
+
 
   card.innerHTML = `
+
     <div class="admin-task-title">
-      ${icon ? `<span class="admin-task-icon">${icon}</span>` : ''}
+
+      ${
+        icon
+          ? `<span class="admin-task-icon">${icon}</span>`
+          : ''
+      }
+
       ${title}
-      ${task.imageUrl ? '<span class="admin-task-image-badge">🖼️ มีรูปพื้นหลัง</span>' : ''}
+
+      ${
+        imageUrl
+          ? '<span class="admin-task-image-badge">🖼️ มีรูปพื้นหลัง</span>'
+          : ''
+      }
+
     </div>
 
-    ${description ? `<div class="admin-task-description">${description}</div>` : ''}
 
-    ${url ? `<div class="admin-task-url">🔗 ${url}</div>` : ''}
+    ${
+      description
+        ? `<div class="admin-task-description">${description}</div>`
+        : ''
+    }
 
-    ${task.imageUrl ? '<img class="admin-task-image-preview" alt="ตัวอย่างรูปพื้นหลัง">' : ''}
+
+    ${
+      url
+        ? `<div class="admin-task-url">🔗 ${url}</div>`
+        : ''
+    }
+
+
+    ${
+      imageUrl
+        ? '<img class="admin-task-image-preview" alt="ตัวอย่างรูปพื้นหลัง">'
+        : ''
+    }
+
 
     <div class="admin-task-dates">
-      ${openDate ? `<div class="date-item">📅 เปิดงาน: ${openDate}</div>` : ''}
-      ${dueDate ? `<div class="date-item">⏰ กำหนดส่ง: ${dueDate}</div>` : ''}
-      <div class="admin-status ${task.active ? 'active' : 'inactive'}">
-        ${task.active ? '🟢 เปิดใช้งาน' : '⚪ ปิดใช้งาน'}
+
+      ${
+        openDate
+          ? `<div class="date-item">📅 เปิดงาน: ${openDate}</div>`
+          : ''
+      }
+
+      ${
+        dueDate
+          ? `<div class="date-item">⏰ กำหนดส่ง: ${dueDate}</div>`
+          : ''
+      }
+
+      <div
+        class="admin-status ${
+          task.active
+            ? 'active'
+            : 'inactive'
+        }"
+      >
+
+        ${
+          task.active
+            ? '🟢 เปิดใช้งาน'
+            : '⚪ ปิดใช้งาน'
+        }
+
       </div>
+
     </div>
+
 
     <div class="admin-task-actions">
-      <button class="admin-edit-button" type="button" onclick="editAdminTask('${escapeAttribute(task.taskId)}')">✏️ แก้ไข</button>
-      <button class="admin-toggle-button" type="button" onclick="toggleAdminTask('${escapeAttribute(task.taskId)}', ${task.active})">${task.active ? '🔴 ปิดงาน' : '🟢 เปิดงาน'}</button>
-      <button class="admin-delete-button" type="button" onclick="deleteAdminTask('${escapeAttribute(task.taskId)}')">🗑️ ลบ</button>
+
+      <button
+        class="admin-edit-button"
+        type="button"
+        onclick="editAdminTask('${escapeAttribute(task.taskId)}')"
+      >
+        ✏️ แก้ไข
+      </button>
+
+
+      <button
+        class="admin-toggle-button"
+        type="button"
+        onclick="toggleAdminTask('${escapeAttribute(task.taskId)}', ${task.active})"
+      >
+        ${
+          task.active
+            ? '🔴 ปิดงาน'
+            : '🟢 เปิดงาน'
+        }
+      </button>
+
+
+      <button
+        class="admin-delete-button"
+        type="button"
+        onclick="deleteAdminTask('${escapeAttribute(task.taskId)}')"
+      >
+        🗑️ ลบ
+      </button>
+
     </div>
+
   `;
 
-  const image = card.querySelector('.admin-task-image-preview');
-  if (image && task.imageUrl) {
-    image.src = task.imageUrl;
-    image.referrerPolicy = 'no-referrer';
-    image.loading = 'lazy';
-    image.onerror = function() {
-      image.remove();
-    };
+
+  const image =
+    card.querySelector(
+      '.admin-task-image-preview'
+    );
+
+
+  if (
+    image &&
+    imageUrl
+  ) {
+
+    const fallbackImageUrl =
+      getTaskImageFallbackUrl(task);
+
+
+    image.src =
+      imageUrl;
+
+    image.referrerPolicy =
+      'no-referrer';
+
+    image.loading =
+      'lazy';
+
+
+    let triedFallback =
+      false;
+
+
+    image.onerror =
+      function() {
+
+        if (
+          !triedFallback &&
+          fallbackImageUrl &&
+          fallbackImageUrl !== imageUrl
+        ) {
+
+          triedFallback =
+            true;
+
+          image.src =
+            fallbackImageUrl;
+
+          return;
+
+        }
+
+
+        image.remove();
+
+      };
+
   }
 
+
   return card;
+
 }
 
 
@@ -4080,6 +4599,7 @@ function createAdminTaskCard(task) {
 let editingTaskId = '';
 
 let selectedTaskImage = null;
+
 let removeTaskImage = false;
 
 
@@ -4092,96 +4612,324 @@ let removeTaskImage = false;
 function resetTaskImageState() {
 
   selectedTaskImage = null;
+
   removeTaskImage = false;
 
-  const input = document.getElementById('adminImage');
-  if (input) input.value = '';
 
-  const preview = document.getElementById('adminImagePreview');
-  const previewImg = document.getElementById('adminImagePreviewImg');
-  const previewInfo = document.getElementById('adminImagePreviewInfo');
+  const input =
+    document.getElementById(
+      'adminImage'
+    );
 
-  if (preview) preview.style.display = 'none';
-  if (previewImg) previewImg.src = '';
-  if (previewInfo) previewInfo.textContent = '';
-}
 
-function showTaskImagePreview(src, info) {
+  if (input) {
+    input.value = '';
+  }
 
-  const preview = document.getElementById('adminImagePreview');
-  const previewImg = document.getElementById('adminImagePreviewImg');
-  const previewInfo = document.getElementById('adminImagePreviewInfo');
 
-  if (!preview || !previewImg) return;
+  const preview =
+    document.getElementById(
+      'adminImagePreview'
+    );
 
-  previewImg.src = src;
-  previewImg.onerror = function() {
-    preview.style.display = 'none';
+
+  const previewImg =
+    document.getElementById(
+      'adminImagePreviewImg'
+    );
+
+
+  const previewInfo =
+    document.getElementById(
+      'adminImagePreviewInfo'
+    );
+
+
+  if (preview) {
+    preview.style.display =
+      'none';
+  }
+
+
+  if (previewImg) {
     previewImg.src = '';
-  };
+  }
 
-  if (previewInfo) previewInfo.textContent = info || '';
-  preview.style.display = 'block';
+
+  if (previewInfo) {
+    previewInfo.textContent =
+      '';
+  }
+
 }
+
+
+
+function showTaskImagePreview(
+  src,
+  info
+) {
+
+  const preview =
+    document.getElementById(
+      'adminImagePreview'
+    );
+
+
+  const previewImg =
+    document.getElementById(
+      'adminImagePreviewImg'
+    );
+
+
+  const previewInfo =
+    document.getElementById(
+      'adminImagePreviewInfo'
+    );
+
+
+  if (
+    !preview ||
+    !previewImg
+  ) {
+    return;
+  }
+
+
+  previewImg.src =
+    src;
+
+
+  previewImg.onerror =
+    function() {
+
+      preview.style.display =
+        'none';
+
+      previewImg.src =
+        '';
+
+    };
+
+
+  if (previewInfo) {
+
+    previewInfo.textContent =
+      info || '';
+
+  }
+
+
+  preview.style.display =
+    'block';
+
+}
+
+
 
 function removeSelectedTaskImage() {
 
   if (selectedTaskImage) {
-    selectedTaskImage = null;
-    removeTaskImage = false;
-    const input = document.getElementById('adminImage');
-    if (input) input.value = '';
-    const preview = document.getElementById('adminImagePreview');
-    if (preview) preview.style.display = 'none';
+
+    selectedTaskImage =
+      null;
+
+    removeTaskImage =
+      false;
+
+
+    const input =
+      document.getElementById(
+        'adminImage'
+      );
+
+
+    if (input) {
+      input.value = '';
+    }
+
+
+    const preview =
+      document.getElementById(
+        'adminImagePreview'
+      );
+
+
+    if (preview) {
+      preview.style.display =
+        'none';
+    }
+
+
     return;
+
   }
 
-  removeTaskImage = true;
 
-  const input = document.getElementById('adminImage');
-  if (input) input.value = '';
+  removeTaskImage =
+    true;
 
-  const preview = document.getElementById('adminImagePreview');
-  const previewImg = document.getElementById('adminImagePreviewImg');
-  const previewInfo = document.getElementById('adminImagePreviewInfo');
-  if (previewImg) previewImg.src = '';
-  if (previewInfo) previewInfo.textContent = 'จะลบรูปพื้นหลังเมื่อกดบันทึก';
-  if (preview) preview.style.display = 'block';
+
+  const input =
+    document.getElementById(
+      'adminImage'
+    );
+
+
+  if (input) {
+    input.value = '';
+  }
+
+
+  const preview =
+    document.getElementById(
+      'adminImagePreview'
+    );
+
+
+  const previewImg =
+    document.getElementById(
+      'adminImagePreviewImg'
+    );
+
+
+  const previewInfo =
+    document.getElementById(
+      'adminImagePreviewInfo'
+    );
+
+
+  if (previewImg) {
+    previewImg.src = '';
+  }
+
+
+  if (previewInfo) {
+
+    previewInfo.textContent =
+      'จะลบรูปพื้นหลังเมื่อกดบันทึก';
+
+  }
+
+
+  if (preview) {
+
+    preview.style.display =
+      'block';
+
+  }
+
 }
 
-document.getElementById('adminImage').addEventListener('change', function(event) {
 
-  const file = event.target.files && event.target.files[0];
-  if (!file) return;
 
-  const allowedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+document
+  .getElementById('adminImage')
+  .addEventListener(
+    'change',
+    function(event) {
 
-  if (!allowedTypes.includes(file.type)) {
-    alert('รองรับเฉพาะ JPG, PNG, WebP และ GIF');
-    event.target.value = '';
-    return;
-  }
+      const file =
+        event.target.files &&
+        event.target.files[0];
 
-  if (file.size > 5 * 1024 * 1024) {
-    alert('รูปภาพต้องมีขนาดไม่เกิน 5 MB');
-    event.target.value = '';
-    return;
-  }
 
-  const reader = new FileReader();
+      if (!file) {
+        return;
+      }
 
-  reader.onload = function(e) {
-    selectedTaskImage = {
-      base64: String(e.target.result || ''),
-      fileName: file.name,
-      mimeType: file.type
-    };
-    removeTaskImage = false;
-    showTaskImagePreview(selectedTaskImage.base64, 'ไฟล์ใหม่: ' + file.name);
-  };
 
-  reader.readAsDataURL(file);
-});
+      const allowedTypes = [
+        'image/jpeg',
+        'image/png',
+        'image/webp',
+        'image/gif'
+      ];
+
+
+      if (
+        !allowedTypes.includes(
+          file.type
+        )
+      ) {
+
+        alert(
+          'รองรับเฉพาะ JPG, PNG, WebP และ GIF'
+        );
+
+
+        event.target.value =
+          '';
+
+
+        return;
+
+      }
+
+
+      if (
+        file.size >
+        5 * 1024 * 1024
+      ) {
+
+        alert(
+          'รูปภาพต้องมีขนาดไม่เกิน 5 MB'
+        );
+
+
+        event.target.value =
+          '';
+
+
+        return;
+
+      }
+
+
+      const reader =
+        new FileReader();
+
+
+      reader.onload =
+        function(e) {
+
+          selectedTaskImage = {
+
+            base64:
+              String(
+                e.target.result ||
+                ''
+              ),
+
+            fileName:
+              file.name,
+
+            mimeType:
+              file.type
+
+          };
+
+
+          removeTaskImage =
+            false;
+
+
+          showTaskImagePreview(
+            selectedTaskImage.base64,
+            'ไฟล์ใหม่: ' +
+              file.name
+          );
+
+        };
+
+
+      reader.readAsDataURL(
+        file
+      );
+
+    }
+  );
+
 
 
 document
@@ -4248,7 +4996,8 @@ document
           .getElementById('adminMessage');
 
 
-      button.disabled = true;
+      button.disabled =
+        true;
 
 
       button.textContent =
@@ -4259,6 +5008,7 @@ document
 
       message.className =
         'admin-message loading';
+
 
       message.textContent =
         'กำลังบันทึกข้อมูล';
@@ -4299,18 +5049,32 @@ document
 
         if (selectedTaskImage) {
 
-          data.imageAction = 'replace';
-          data.imageBase64 = selectedTaskImage.base64;
-          data.imageFileName = selectedTaskImage.fileName;
-          data.imageMimeType = selectedTaskImage.mimeType;
+          data.imageAction =
+            'replace';
 
-        } else if (editingTaskId && removeTaskImage) {
+          data.imageBase64 =
+            selectedTaskImage.base64;
 
-          data.imageAction = 'remove';
+          data.imageFileName =
+            selectedTaskImage.fileName;
 
-        } else if (editingTaskId) {
+          data.imageMimeType =
+            selectedTaskImage.mimeType;
 
-          data.imageAction = 'keep';
+        } else if (
+          editingTaskId &&
+          removeTaskImage
+        ) {
+
+          data.imageAction =
+            'remove';
+
+        } else if (
+          editingTaskId
+        ) {
+
+          data.imageAction =
+            'keep';
 
         }
 
@@ -4379,11 +5143,15 @@ document
 
 
         document
-          .getElementById('adminIcon')
-          .value = '';
+          .getElementById(
+            'adminIcon'
+          )
+          .value =
+          '';
 
 
-        editingTaskId = '';
+        editingTaskId =
+          '';
 
 
         document
@@ -4391,7 +5159,7 @@ document
             'adminFormTitle'
           )
           .textContent =
-            '➕ เพิ่มงานใหม่';
+          '➕ เพิ่มงานใหม่';
 
 
         document
@@ -4399,7 +5167,7 @@ document
             'adminSaveButton'
           )
           .textContent =
-            '💾 เพิ่มงาน';
+          '💾 เพิ่มงาน';
 
 
         document
@@ -4407,7 +5175,7 @@ document
             'adminCancelButton'
           )
           .style.display =
-            'none';
+          'none';
 
 
         await loadAdminTasks();
@@ -4425,7 +5193,9 @@ document
 
       } finally {
 
-        button.disabled = false;
+        button.disabled =
+          false;
+
 
         if (!editingTaskId) {
 
@@ -4446,7 +5216,9 @@ document
    แก้ไขงาน
 ===================================================== */
 
-async function editAdminTask(taskId) {
+async function editAdminTask(
+  taskId
+) {
 
   const token =
     localStorage.getItem(
@@ -4533,7 +5305,7 @@ async function editAdminTask(taskId) {
         'adminTitle'
       )
       .value =
-        task.title || '';
+      task.title || '';
 
 
     document
@@ -4541,7 +5313,7 @@ async function editAdminTask(taskId) {
         'adminDescription'
       )
       .value =
-        task.description || '';
+      task.description || '';
 
 
     document
@@ -4549,7 +5321,7 @@ async function editAdminTask(taskId) {
         'adminUrl'
       )
       .value =
-        task.url || '';
+      task.url || '';
 
 
     document
@@ -4557,7 +5329,7 @@ async function editAdminTask(taskId) {
         'adminOpenDate'
       )
       .value =
-        task.openDate || '';
+      task.openDate || '';
 
 
     document
@@ -4565,25 +5337,110 @@ async function editAdminTask(taskId) {
         'adminDueDate'
       )
       .value =
-        task.dueDate || '';
-
+      task.dueDate || '';
 
 
     document
-      .getElementById('adminIcon')
+      .getElementById(
+        'adminIcon'
+      )
       .value =
-        task.icon || '';
+      task.icon || '';
 
 
     resetTaskImageState();
 
 
-    if (task.imageUrl) {
+    /* =================================================
+       แสดงรูปเดิมโดยใช้ imageFileId
+    ================================================= */
 
-      showTaskImagePreview(
-        task.imageUrl,
-        'รูปพื้นหลังปัจจุบัน'
-      );
+    const imageUrl =
+      getTaskImageUrl(task);
+
+
+    const fallbackImageUrl =
+      getTaskImageFallbackUrl(task);
+
+
+    if (imageUrl) {
+
+      const preview =
+        document.getElementById(
+          'adminImagePreview'
+        );
+
+
+      const previewImg =
+        document.getElementById(
+          'adminImagePreviewImg'
+        );
+
+
+      const previewInfo =
+        document.getElementById(
+          'adminImagePreviewInfo'
+        );
+
+
+      if (
+        preview &&
+        previewImg
+      ) {
+
+        previewImg.src =
+          imageUrl;
+
+
+        previewImg.referrerPolicy =
+          'no-referrer';
+
+
+        let triedFallback =
+          false;
+
+
+        previewImg.onerror =
+          function() {
+
+            if (
+              !triedFallback &&
+              fallbackImageUrl &&
+              fallbackImageUrl !== imageUrl
+            ) {
+
+              triedFallback =
+                true;
+
+              previewImg.src =
+                fallbackImageUrl;
+
+              return;
+
+            }
+
+
+            preview.style.display =
+              'none';
+
+            previewImg.src =
+              '';
+
+          };
+
+
+        if (previewInfo) {
+
+          previewInfo.textContent =
+            'รูปพื้นหลังปัจจุบัน';
+
+        }
+
+
+        preview.style.display =
+          'block';
+
+      }
 
     }
 
@@ -4593,7 +5450,7 @@ async function editAdminTask(taskId) {
         'adminFormTitle'
       )
       .textContent =
-        '✏️ แก้ไขงาน';
+      '✏️ แก้ไขงาน';
 
 
     document
@@ -4601,7 +5458,7 @@ async function editAdminTask(taskId) {
         'adminSaveButton'
       )
       .textContent =
-        '💾 บันทึกการแก้ไข';
+      '💾 บันทึกการแก้ไข';
 
 
     document
@@ -4609,14 +5466,15 @@ async function editAdminTask(taskId) {
         'adminCancelButton'
       )
       .style.display =
-        'block';
+      'block';
 
 
     document
       .getElementById(
         'adminMessage'
       )
-      .textContent = '';
+      .textContent =
+      '';
 
 
     window.scrollTo({
@@ -4646,7 +5504,8 @@ async function editAdminTask(taskId) {
 
 function cancelAdminEdit() {
 
-  editingTaskId = '';
+  editingTaskId =
+    '';
 
 
   const form =
@@ -4663,9 +5522,17 @@ function cancelAdminEdit() {
   resetTaskImageState();
 
 
-  const icon = document.getElementById('adminIcon');
+  const icon =
+    document.getElementById(
+      'adminIcon'
+    );
+
+
   if (icon) {
-    icon.value = '';
+
+    icon.value =
+      '';
+
   }
 
 
@@ -4839,7 +5706,9 @@ async function toggleAdminTask(
    ลบงาน
 ===================================================== */
 
-async function deleteAdminTask(taskId) {
+async function deleteAdminTask(
+  taskId
+) {
 
   if (
     !confirm(
@@ -4938,10 +5807,14 @@ async function deleteAdminTask(taskId) {
    แจ้งเตือนเมื่อเหลือเวลาไม่เกิน 3 วัน
 ===================================================== */
 
-function isNearDue(value) {
+function isNearDue(
+  value
+) {
 
   const dueDate =
-    parseTaskDueDate(value);
+    parseTaskDueDate(
+      value
+    );
 
 
   if (!dueDate) {
@@ -4980,7 +5853,9 @@ function isNearDue(value) {
    รูปแบบ dd/MM/yyyy HH:mm
 ===================================================== */
 
-function parseTaskDueDate(value) {
+function parseTaskDueDate(
+  value
+) {
 
   if (!value) {
     return null;
@@ -5002,14 +5877,18 @@ function parseTaskDueDate(value) {
     const day =
       Number(match[1]);
 
+
     const month =
       Number(match[2]) - 1;
+
 
     const year =
       Number(match[3]);
 
+
     const hour =
       Number(match[4] || 0);
+
 
     const minute =
       Number(match[5] || 0);
@@ -5072,7 +5951,9 @@ function parseTaskDueDate(value) {
    จัดรูปแบบวันที่
 ===================================================== */
 
-function formatAdminDateDisplay(value) {
+function formatAdminDateDisplay(
+  value
+) {
 
   if (!value) {
     return '';
@@ -5129,7 +6010,9 @@ function formatAdminDateDisplay(value) {
   }
 
 
-  return escapeHtml(value);
+  return escapeHtml(
+    value
+  );
 
 }
 
@@ -5190,6 +6073,8 @@ async function openTask(
 
           })
 
+        }
+
       }
     );
 
@@ -5230,33 +6115,39 @@ function logout() {
 
   document
     .getElementById('taskPage')
-    .style.display = 'none';
+    .style.display =
+    'none';
 
 
   document
     .getElementById('adminPage')
-    .style.display = 'none';
+    .style.display =
+    'none';
 
 
   document
     .getElementById('loginPage')
-    .style.display = 'flex';
+    .style.display =
+    'flex';
 
 
   document
     .getElementById('registerPage')
-    .style.display = 'none';
+    .style.display =
+    'none';
 
 
   document
     .getElementById('resetPage')
-    .style.display = 'none';
+    .style.display =
+    'none';
 
 
   const savedUsername =
     localStorage.getItem(
       'savedUsername'
     );
+
 
   const savedPassword =
     localStorage.getItem(
@@ -5268,13 +6159,15 @@ function logout() {
 
     document
       .getElementById('username')
-      .value = savedUsername;
+      .value =
+      savedUsername;
 
   } else {
 
     document
       .getElementById('username')
-      .value = '';
+      .value =
+      '';
 
   }
 
@@ -5283,19 +6176,23 @@ function logout() {
 
     document
       .getElementById('password')
-      .value = savedPassword;
+      .value =
+      savedPassword;
 
   } else {
 
     document
       .getElementById('password')
-      .value = '';
+      .value =
+      '';
 
   }
 
 
   document
-    .getElementById('rememberPassword')
+    .getElementById(
+      'rememberPassword'
+    )
     .checked =
       !!(
         savedUsername &&
@@ -5305,7 +6202,8 @@ function logout() {
 
   document
     .getElementById('message')
-    .textContent = '';
+    .textContent =
+    '';
 
 }
 
@@ -5322,6 +6220,7 @@ function loadSavedLogin() {
       'savedUsername'
     );
 
+
   const savedPassword =
     localStorage.getItem(
       'savedPassword'
@@ -5332,7 +6231,8 @@ function loadSavedLogin() {
 
     document
       .getElementById('username')
-      .value = savedUsername;
+      .value =
+      savedUsername;
 
   }
 
@@ -5341,7 +6241,8 @@ function loadSavedLogin() {
 
     document
       .getElementById('password')
-      .value = savedPassword;
+      .value =
+      savedPassword;
 
   }
 
@@ -5352,8 +6253,11 @@ function loadSavedLogin() {
   ) {
 
     document
-      .getElementById('rememberPassword')
-      .checked = true;
+      .getElementById(
+        'rememberPassword'
+      )
+      .checked =
+      true;
 
   }
 
@@ -5402,7 +6306,9 @@ window.addEventListener(
    จัดรูปแบบวันที่
 ===================================================== */
 
-function formatDate(value) {
+function formatDate(
+  value
+) {
 
   if (!value) {
     return '';
@@ -5410,7 +6316,9 @@ function formatDate(value) {
 
 
   const parsedDate =
-    parseTaskDueDate(value);
+    parseTaskDueDate(
+      value
+    );
 
 
   if (!parsedDate) {
@@ -5441,25 +6349,32 @@ function formatDate(value) {
    ป้องกัน HTML
 ===================================================== */
 
-function escapeHtml(value) {
+function escapeHtml(
+  value
+) {
 
   return String(value)
+
     .replace(
       /&/g,
       '&amp;'
     )
+
     .replace(
       /</g,
       '&lt;'
     )
+
     .replace(
       />/g,
       '&gt;'
     )
+
     .replace(
       /"/g,
       '&quot;'
     )
+
     .replace(
       /'/g,
       '&#039;'
@@ -5473,17 +6388,22 @@ function escapeHtml(value) {
    ป้องกัน Attribute
 ===================================================== */
 
-function escapeAttribute(value) {
+function escapeAttribute(
+  value
+) {
 
   return String(value)
+
     .replace(
       /\\/g,
       '\\\\'
     )
+
     .replace(
       /'/g,
       "\\'"
     )
+
     .replace(
       /"/g,
       '&quot;'
