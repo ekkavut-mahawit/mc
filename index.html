@@ -678,6 +678,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transform-origin: center center;
+      transition: transform 0.15s ease;
     }
 
 
@@ -980,11 +982,38 @@
     }
 
 
-    .admin-image-preview img {
+    /*
+       กรอบตัวอย่างรูปภาพ 8:3
+       รูปจะถูกย่อ/ขยายอยู่ภายในกรอบ
+    */
+
+    .admin-image-preview-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 8 / 3;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          135deg,
+          #eeeeee,
+          #dddddd
+        );
+    }
+
+
+    .admin-image-preview-frame img {
+      position: absolute;
+      inset: 0;
       display: block;
       width: 100%;
-      max-height: 240px;
+      height: 100%;
       object-fit: cover;
+      transform-origin: center center;
+      transition:
+        transform 0.12s ease;
+      will-change: transform;
+      user-select: none;
+      -webkit-user-drag: none;
     }
 
 
@@ -992,6 +1021,127 @@
       padding: 9px 12px;
       font-size: 13px;
       color: #555;
+    }
+
+
+    .admin-image-scale-control {
+      display: none;
+      padding:
+        10px
+        12px
+        12px;
+      border-top:
+        1px solid
+        #e0e0e0;
+      background: #fafafa;
+    }
+
+
+    .admin-image-scale-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+
+    .admin-image-scale-button {
+      flex:
+        0 0
+        44px;
+
+      width: 44px;
+      height: 44px;
+
+      min-height: 44px;
+
+      margin: 0;
+
+      padding: 0;
+
+      border-radius: 9px;
+
+      background: #eeeeee;
+
+      color: #444;
+
+      font-size: 21px;
+
+      line-height: 1;
+
+      font-weight: bold;
+    }
+
+
+    .admin-image-scale-button:hover {
+      background: #dddddd;
+    }
+
+
+    .admin-image-scale-slider {
+      flex: 1;
+
+      width: 100%;
+
+      min-width: 0;
+
+      margin: 0;
+
+      padding: 0;
+
+      border: 0;
+
+      box-shadow: none;
+
+      accent-color: #c62828;
+
+      cursor: pointer;
+
+      touch-action: pan-x;
+    }
+
+
+    .admin-image-scale-value {
+      flex:
+        0 0
+        62px;
+
+      text-align: center;
+
+      color: #c62828;
+
+      font-size: 15px;
+
+      font-weight: bold;
+    }
+
+
+    .admin-image-scale-reset {
+      width: auto;
+
+      min-height: 40px;
+
+      margin: 8px 0 0;
+
+      padding:
+        7px
+        12px;
+
+      background: white;
+
+      color: #555;
+
+      border:
+        1px solid
+        #d0d0d0;
+
+      font-size: 13px;
+
+      font-weight: normal;
+    }
+
+
+    .admin-image-scale-reset:hover {
+      background: #eeeeee;
     }
 
 
@@ -1037,11 +1187,16 @@
 
     .admin-task-image-preview {
       width: 100%;
-      max-height: 150px;
+      aspect-ratio: 8 / 3;
+      max-height: none;
       margin: 8px 0 12px;
       border-radius: 10px;
       object-fit: cover;
       display: block;
+      transform-origin: center center;
+      transition:
+        transform 0.12s ease;
+      overflow: hidden;
     }
 
 
@@ -1878,6 +2033,24 @@
         padding: 28px 15px;
       }
 
+
+      .admin-image-scale-row {
+        gap: 6px;
+      }
+
+
+      .admin-image-scale-button {
+        flex-basis: 42px;
+        width: 42px;
+        height: 42px;
+      }
+
+
+      .admin-image-scale-value {
+        flex-basis: 56px;
+        font-size: 14px;
+      }
+
     }
 
 
@@ -2593,16 +2766,83 @@
                 class="admin-image-preview"
               >
 
-                <img
-                  id="adminImagePreviewImg"
-                  src=""
-                  alt="ตัวอย่างรูปภาพ"
+                <div class="admin-image-preview-frame">
+
+                  <img
+                    id="adminImagePreviewImg"
+                    src=""
+                    alt="ตัวอย่างรูปภาพ"
+                  >
+
+                </div>
+
+
+                <div
+                  id="adminImageScaleControl"
+                  class="admin-image-scale-control"
                 >
+
+                  <div class="admin-image-scale-row">
+
+                    <button
+                      type="button"
+                      class="admin-image-scale-button"
+                      onclick="changeTaskImageScale(-10)"
+                      aria-label="ย่อรูป"
+                    >
+                      −
+                    </button>
+
+
+                    <input
+                      type="range"
+                      id="adminImageScaleSlider"
+                      class="admin-image-scale-slider"
+                      min="100"
+                      max="300"
+                      step="1"
+                      value="100"
+                      aria-label="ขนาดรูปภาพ"
+                    >
+
+
+                    <button
+                      type="button"
+                      class="admin-image-scale-button"
+                      onclick="changeTaskImageScale(10)"
+                      aria-label="ขยายรูป"
+                    >
+                      +
+                    </button>
+
+
+                    <div
+                      id="adminImageScaleValue"
+                      class="admin-image-scale-value"
+                    >
+                      100%
+                    </div>
+
+                  </div>
+
+
+                  <button
+                    type="button"
+                    id="adminImageScaleReset"
+                    class="admin-image-scale-reset"
+                    onclick="resetTaskImageScale()"
+                  >
+                    ↺ รีเซ็ตเป็น 100%
+                  </button>
+
+                </div>
+
 
                 <div
                   id="adminImagePreviewInfo"
                   class="admin-image-preview-info"
                 ></div>
+
 
                 <div class="admin-image-preview-actions">
 
@@ -3854,6 +4094,54 @@ async function loadTasks() {
 
 
 /* =====================================================
+   แปลงค่า Scale ของรูป
+===================================================== */
+
+function normalizeTaskImageScale(
+  value
+) {
+
+  const number =
+    Number(value);
+
+
+  if (
+    !Number.isFinite(number)
+  ) {
+
+    return 1;
+
+  }
+
+
+  return Math.min(
+    3,
+    Math.max(
+      1,
+      number
+    )
+  );
+
+}
+
+
+/* =====================================================
+   สร้างค่า CSS Scale
+===================================================== */
+
+function getTaskImageScale(
+  task
+) {
+
+  return normalizeTaskImageScale(
+    task &&
+    task.imageScale
+  );
+
+}
+
+
+/* =====================================================
    สร้าง Card งาน
 ===================================================== */
 
@@ -3932,6 +4220,21 @@ function createTaskCard(task) {
 
     image.referrerPolicy =
       'no-referrer';
+
+
+    /*
+       ใช้ Scale ที่บันทึกไว้
+       ค่าเริ่มต้น 1 = 100%
+    */
+
+    const imageScale =
+      getTaskImageScale(task);
+
+
+    image.style.transform =
+      'scale(' +
+      imageScale +
+      ')';
 
 
     let triedFallback =
@@ -4554,6 +4857,20 @@ function createAdminTaskCard(task) {
       'lazy';
 
 
+    /*
+       ใช้ Scale เดียวกับที่บันทึกไว้
+    */
+
+    const imageScale =
+      getTaskImageScale(task);
+
+
+    image.style.transform =
+      'scale(' +
+      imageScale +
+      ')';
+
+
     let triedFallback =
       false;
 
@@ -4603,6 +4920,250 @@ let selectedTaskImage = null;
 let removeTaskImage = false;
 
 
+/*
+   Scale รูปภาพ
+   1 = 100%
+   3 = 300%
+*/
+
+let taskImageScale = 1;
+
+
+
+/* =====================================================
+   ADMIN
+   แปลงค่า Scale
+===================================================== */
+
+function normalizeAdminImageScale(
+  value
+) {
+
+  const number =
+    Number(value);
+
+
+  if (
+    !Number.isFinite(number)
+  ) {
+
+    return 1;
+
+  }
+
+
+  return Math.min(
+    3,
+    Math.max(
+      1,
+      number
+    )
+  );
+
+}
+
+
+/* =====================================================
+   ADMIN
+   อัปเดต UI Scale
+===================================================== */
+
+function updateTaskImageScaleUI() {
+
+  taskImageScale =
+    normalizeAdminImageScale(
+      taskImageScale
+    );
+
+
+  const percentage =
+    Math.round(
+      taskImageScale *
+      100
+    );
+
+
+  const slider =
+    document.getElementById(
+      'adminImageScaleSlider'
+    );
+
+
+  const value =
+    document.getElementById(
+      'adminImageScaleValue'
+    );
+
+
+  if (slider) {
+
+    slider.value =
+      String(percentage);
+
+  }
+
+
+  if (value) {
+
+    value.textContent =
+      percentage +
+      '%';
+
+  }
+
+
+  applyTaskImageScale();
+
+}
+
+
+/* =====================================================
+   ADMIN
+   ใช้ Scale กับรูปตัวอย่าง
+===================================================== */
+
+function applyTaskImageScale() {
+
+  const previewImg =
+    document.getElementById(
+      'adminImagePreviewImg'
+    );
+
+
+  if (!previewImg) {
+    return;
+  }
+
+
+  previewImg.style.transform =
+    'scale(' +
+    normalizeAdminImageScale(
+      taskImageScale
+    ) +
+    ')';
+
+}
+
+
+/* =====================================================
+   ADMIN
+   เปลี่ยน Scale
+===================================================== */
+
+function changeTaskImageScale(
+  amount
+) {
+
+  const currentPercentage =
+    Math.round(
+      normalizeAdminImageScale(
+        taskImageScale
+      ) *
+      100
+    );
+
+
+  const nextPercentage =
+    Math.min(
+      300,
+      Math.max(
+        100,
+        currentPercentage +
+        Number(amount || 0)
+      )
+    );
+
+
+  taskImageScale =
+    nextPercentage /
+    100;
+
+
+  updateTaskImageScaleUI();
+
+}
+
+
+/* =====================================================
+   ADMIN
+   รีเซ็ต Scale เป็น 100%
+===================================================== */
+
+function resetTaskImageScale() {
+
+  taskImageScale =
+    1;
+
+  updateTaskImageScaleUI();
+
+}
+
+
+/* =====================================================
+   ADMIN
+   เปิด/ปิดตัวควบคุม Scale
+===================================================== */
+
+function showTaskImageScaleControl(
+  visible
+) {
+
+  const control =
+    document.getElementById(
+      'adminImageScaleControl'
+    );
+
+
+  if (!control) {
+    return;
+  }
+
+
+  control.style.display =
+    visible
+      ? 'block'
+      : 'none';
+
+}
+
+
+
+/* =====================================================
+   ADMIN
+   เพิ่ม Event ให้ Slider
+===================================================== */
+
+document
+  .getElementById(
+    'adminImageScaleSlider'
+  )
+  .addEventListener(
+    'input',
+    function(event) {
+
+      const percentage =
+        Number(
+          event.target.value
+        );
+
+
+      taskImageScale =
+        Math.min(
+          3,
+          Math.max(
+            1,
+            percentage /
+            100
+          )
+        );
+
+
+      updateTaskImageScaleUI();
+
+    }
+  );
+
+
 
 /* =====================================================
    ADMIN
@@ -4614,6 +5175,9 @@ function resetTaskImageState() {
   selectedTaskImage = null;
 
   removeTaskImage = false;
+
+  taskImageScale =
+    1;
 
 
   const input =
@@ -4652,7 +5216,13 @@ function resetTaskImageState() {
 
 
   if (previewImg) {
-    previewImg.src = '';
+
+    previewImg.src =
+      '';
+
+    previewImg.style.transform =
+      'scale(1)';
+
   }
 
 
@@ -4660,6 +5230,14 @@ function resetTaskImageState() {
     previewInfo.textContent =
       '';
   }
+
+
+  showTaskImageScaleControl(
+    false
+  );
+
+
+  updateTaskImageScaleUI();
 
 }
 
@@ -4700,6 +5278,14 @@ function showTaskImagePreview(
     src;
 
 
+  previewImg.style.transform =
+    'scale(' +
+    normalizeAdminImageScale(
+      taskImageScale
+    ) +
+    ')';
+
+
   previewImg.onerror =
     function() {
 
@@ -4708,6 +5294,10 @@ function showTaskImagePreview(
 
       previewImg.src =
         '';
+
+      showTaskImageScaleControl(
+        false
+      );
 
     };
 
@@ -4722,6 +5312,14 @@ function showTaskImagePreview(
 
   preview.style.display =
     'block';
+
+
+  showTaskImageScaleControl(
+    true
+  );
+
+
+  updateTaskImageScaleUI();
 
 }
 
@@ -4759,6 +5357,18 @@ function removeSelectedTaskImage() {
       preview.style.display =
         'none';
     }
+
+
+    showTaskImageScaleControl(
+      false
+    );
+
+
+    taskImageScale =
+      1;
+
+
+    updateTaskImageScaleUI();
 
 
     return;
@@ -4800,7 +5410,13 @@ function removeSelectedTaskImage() {
 
 
   if (previewImg) {
-    previewImg.src = '';
+
+    previewImg.src =
+      '';
+
+    previewImg.style.transform =
+      'scale(1)';
+
   }
 
 
@@ -4818,6 +5434,18 @@ function removeSelectedTaskImage() {
       'block';
 
   }
+
+
+  showTaskImageScaleControl(
+    false
+  );
+
+
+  taskImageScale =
+    1;
+
+
+  updateTaskImageScaleUI();
 
 }
 
@@ -4912,6 +5540,14 @@ document
 
           removeTaskImage =
             false;
+
+
+          /*
+             รูปใหม่เริ่มที่ 100%
+          */
+
+          taskImageScale =
+            1;
 
 
           showTaskImagePreview(
@@ -5042,7 +5678,16 @@ document
             dueDate,
 
           icon:
-            icon
+            icon,
+
+          /*
+             บันทึก Scale ปัจจุบัน
+          */
+
+          imageScale:
+            normalizeAdminImageScale(
+              taskImageScale
+            )
 
         };
 
@@ -5352,6 +5997,19 @@ async function editAdminTask(
 
 
     /* =================================================
+       โหลด Scale เดิมจากฐานข้อมูล
+    ================================================= */
+
+    taskImageScale =
+      normalizeAdminImageScale(
+        task.imageScale
+      );
+
+
+    updateTaskImageScaleUI();
+
+
+    /* =================================================
        แสดงรูปเดิมโดยใช้ imageFileId
     ================================================= */
 
@@ -5396,6 +6054,12 @@ async function editAdminTask(
           'no-referrer';
 
 
+        previewImg.style.transform =
+          'scale(' +
+          taskImageScale +
+          ')';
+
+
         let triedFallback =
           false;
 
@@ -5426,6 +6090,10 @@ async function editAdminTask(
             previewImg.src =
               '';
 
+            showTaskImageScaleControl(
+              false
+            );
+
           };
 
 
@@ -5439,6 +6107,14 @@ async function editAdminTask(
 
         preview.style.display =
           'block';
+
+
+        showTaskImageScaleControl(
+          true
+        );
+
+
+        updateTaskImageScaleUI();
 
       }
 
